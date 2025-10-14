@@ -1,4 +1,13 @@
 .centralizar {
+/* Classe para centralizar tabelas*/
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.centralizarImagem {
+/* Classe para centralizar imagens*/
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -28,4 +37,16 @@ body {
 
 .colorText {
     color: rgb(40, 40, 40);
+}
+
+.botaoGrande { 
+/*Classe para definir estilo, como se fosse um "botao" */
+  background-color: rgb(80, 180, 90);
+  text-align: center;
+  font-size: 70px;
+  display: grid;
+  
+  
+
+
 }
