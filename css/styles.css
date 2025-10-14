@@ -1,11 +1,12 @@
 .centralizar {
-    display:block;
-    margin-left:auto;
+    display: block;
+    margin-left: auto;
     margin-right: auto;
     width: 50%;
-}      
+}
 
 .tituloPagina {
+    font-family: Arial, sans-serif;
     text-align: center;
     color: rgb(250, 170, 60);
     background-color: rgb(80, 180, 90);
@@ -20,9 +21,11 @@ body {
 }
 
 .centralizarNav {
-    display: flex;
-    justify-content: center;
-   
-   
-    
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: rgb(40, 40, 40);
+}
+
+.colorText {
+    color: rgb(40, 40, 40);
 }
