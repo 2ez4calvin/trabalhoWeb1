@@ -1,5 +1,5 @@
 .centralizar {
-/* Classe para centralizar tabelas*/
+    /* Classe para centralizar tabelas*/
     display: table;
     margin-left: auto;
     margin-right: auto;
@@ -7,46 +7,67 @@
 }
 
 .centralizarImagem {
-/* Classe para centralizar imagens*/
+    /* Classe para centralizar imagens*/
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 40%;
 }
 
 .tituloPagina {
+    /*Classe padrao para os titulos das paginas*/
     font-family: Arial, sans-serif;
     text-align: center;
-    color: rgb(250, 255, 255);
-    background-color: rgb(80, 180, 90);
+    color: rgb(255, 255, 255);
+    background-color: rgb(46, 125, 50);
+    ;
 
 }
 
 body {
+    /* Classe feita para o fundo e letra do body*/
     background-color: rgb(245, 245, 240);
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+
+
 }
 
-.centralizarNav {
+/*.centralizarNav {
     text-align: center;
     font-family: Arial, sans-serif;
     color: rgb(40, 40, 40);
-}
+}*/
 
 .colorText {
+    /*cor para os titulos h5*/
     color: rgb(40, 40, 40);
 }
 
-.botaoGrande { 
-/*Classe para definir estilo, como se fosse um "botao" */
-  background-color: rgb(80, 180, 90);
-  text-align: center;
-  font-size: 70px;
-  display: grid;
-  
-  
+.botaoGrande {
+    /*Classe para definir estilo, como se fosse um "botao" */
+    color: rgb(255, 255, 255);
+    background-color: rgb(46, 125, 50);
+    border-radius: 30px;
+    width: 500px;
+    height: 180px;
+    text-align: center;
+    font-size: x-large
+        /* text-align: center;
+    font-size: 70px;
+    display: grid;*/
 
+}
 
+nav a {
+    
+    5
+    text-decoration: none;
+    color: rgb(46, 125, 50);
+}
+
+td a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
 }
