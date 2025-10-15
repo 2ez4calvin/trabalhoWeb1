@@ -33,11 +33,11 @@ body {
 
 }
 
-/*.centralizarNav {
+.centralizarNav {
     text-align: center;
     font-family: Arial, sans-serif;
     color: rgb(40, 40, 40);
-}*/
+}
 
 .colorText {
     /*cor para os titulos h5*/
@@ -61,7 +61,7 @@ body {
 
 nav a {
     
-    5
+    
     text-decoration: none;
     color: rgb(46, 125, 50);
 }
