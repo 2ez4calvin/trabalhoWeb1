@@ -4,14 +4,14 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+    border-collapse: separate;
 }
 
-.centralizarImagem {
-    /* Classe para centralizar imagens*/
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+.conterImagem {
+    /* Classe para conter imagem na div*/
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .tituloPagina {
@@ -44,24 +44,30 @@ body {
     color: rgb(40, 40, 40);
 }
 
-.botaoGrande {
+.botao {
     /*Classe para definir estilo, como se fosse um "botao" */
     color: rgb(255, 255, 255);
     background-color: rgb(46, 125, 50);
-    border-radius: 30px;
-    width: 500px;
-    height: 180px;
+    padding: 40px 40px;
+    margin: 30px;
     text-align: center;
-    font-size: x-large
-        /* text-align: center;
-    font-size: 70px;
-    display: grid;*/
+    font-size: xx-large;
+    background-color: rgb(46, 125, 50);
+    border-radius: 30px;
+}
+
+.botao:hover {
+    /*Hover eh a acao de passar o mouse, use essa classe para definir
+    a estilizacao de quando passa o mouse no botao*/
+    background-color: rgb(25, 80, 80);
+    
+    box-shadow: 0 4px 8px black
 
 }
 
 nav a {
-    
-    
+
+
     text-decoration: none;
     color: rgb(46, 125, 50);
 }
@@ -70,4 +76,19 @@ td a {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-weight: bolder;
+}
+
+.cabecalho{
+    /*Classe de padronizacao de cabecalho*/
+    width: 100%;
+    height: 100px;
+    display: block;
+    background-color: rgb(46, 125, 50);
+}
+
+.cabecalhoLogo{
+ /*Parte da logo do cabecalho*/
+ height: 100%;
+ float: left;
+ 
 }
