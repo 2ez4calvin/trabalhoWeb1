@@ -20,3 +20,36 @@
             <a href="contato.html">Contato</a>
         </nav>
     </header>
+
+    <div class="div-contato">
+        <p class="frase-banner">Formulário para contato</p>
+        <div class="contato-formulario">
+            <form action="sucesso-contato.html" method="post" id="formulario-contato">
+                <label for="nome-contato">Nome:</label><br>
+                <input type="text" placeholder="Nome para contato" required><br>
+                <label for="email-contato">E-mail:</label><br>
+                <input type="email" placeholder="example@mail.com" required><br>
+                <label for="telefone-contato">Telefone:</label><br>
+                <input type="tel" placeholder="(XX)XXXXX-XXXX" pattern="\[0-9]{2}\[0-9]{5}-[0-9]{4}"><small> Formato:
+                    1112345-6789</small><br>
+                <label for="assunto-contato">Assunto:</label><br>
+                <select name="assunto" id="assunto-contato" required>
+                    <option value=""> Escolha uma opção: </option>
+                    <option value="problemas-compra">Problemas com a compra</option>
+                    <option value="feedback">Dicas ou sugestões</option>
+                    <option value="problemas-tecnicos">Problemas com o site</option>
+                </select><br>
+                <label for="descricao">Descrição:</label><br>
+                <textarea id="descricao" name="descricao" required maxlength="250"></textarea><br>
+                <button type="submit" form="formulario-contato"
+                 value="submit" class="botao-formulario">Enviar</button>
+<!--
+Falta centralizar esse botao!!!!!!!
+-->
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

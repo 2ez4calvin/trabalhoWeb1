@@ -1,8 +1,9 @@
 :root {
     --cor-principal: rgb(46, 125, 50);
     --cor-letra-principal: rgb(255, 255, 255);
-    --cor-principal-opaca: rgba(46, 125, 50,0.8);
+    --cor-principal-opaca: rgba(46, 125, 50, 0.8);
     --cor-botao-hover: rgb(34, 133, 133);
+    --cor-branco-opaco: rgba(255, 255, 255, 0.8);
 
 
     /*
@@ -11,12 +12,29 @@
     Botao hover: Cor quando passa o mouse em cima do botao
     */
 }
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 
+}
+
+select {
+    font-size: 0.9rem;
+    padding: 2px 5px;
+}
+
+input {
+    font-size: 0.9rem;
+    padding: 2px 5px;
+}
+
+textarea{
+    resize: none;
+    min-width: 300px;
+    min-height: 150px;
 }
 
 .centralizar {
@@ -45,8 +63,8 @@ body {
     background-position: center;
 }
 
-header{
-    
+header {
+
     top: 0;
     left: 0;
     width: 100%;
@@ -56,7 +74,8 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    position: relative;
+    position: sticky;
+    /*MUDAR AQUI SE NAO GOSTAR DO COMPORTAMENTO HEADER*/
     max-height: 100px;
 }
 
@@ -97,7 +116,7 @@ td a {
 }
 
 
-.logo{ 
+.logo {
     /*CSS da parte da esquerda do header, onde o logo do IFG esta
     */
     width: 100px;
@@ -105,24 +124,24 @@ td a {
     object-fit: contain;
 }
 
-.titulo-header{
+.titulo-header {
     /*CSS do titulo do header e localizacao dele
     */
     color: var(--cor-letra-principal);
 }
 
-.navbar a{
+.navbar a {
     /*CSS da parte do navbar do header
     */
     position: relative;
     font: 20px;
     font-weight: 500;
     color: var(--cor-letra-principal);
-    text-decoration:none;
+    text-decoration: none;
     margin-left: 40px;
 }
 
-.banner{
+.banner {
     /*Banner da pagina principal */
     margin-top: 80px;
     width: 60%;
@@ -132,13 +151,12 @@ td a {
     background-image: url(../img/cenoura2.jpg);
     border-radius: 50px;
     margin-left: 20%;
-    margin-right: 20%;
     text-align: center;
     z-index: 10;
     position: relative;
 }
 
-.botao-banner{
+.botao-banner {
     /*Botao do banner na pagina index*/
     width: 200px;
     text-align: center;
@@ -154,7 +172,7 @@ td a {
     color: var(--cor-letra-principal);
 }
 
-.botao-banner:hover{
+.botao-banner:hover {
     /*Hover eh a acao de passar o mouse, use essa classe para definir
     a estilizacao de quando passa o mouse no botao*/
     background-color: var(--cor-botao-hover);
@@ -163,7 +181,7 @@ td a {
 }
 
 
-.botoes-index{
+.botoes-index {
     /*Parte da tabela dos botoes na pagina index*/
     display: flex;
     justify-content: center;
@@ -180,12 +198,48 @@ td a {
     max-width: 400px;
 }
 
-.frase-banner{
+.frase-banner {
+    /*CSS da frase do topo do banner */
+    margin-top: 20px;
     text-align: center;
     font-size: 30px;
     color: var(--cor-letra-principal);
     background-color: var(--cor-principal-opaca);
     border-radius: 50px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+.div-contato {
+    /*Parte da div do formulario de contato*/
+    margin-top: 50px;
+    background-color: var(--cor-branco-opaco);
+    left: 20%;
+    height: 500px;
+    width: 60%;
+    position: relative;
+    border-radius: 40px;
+}
+
+.contato-formulario {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    position: absolute;
+    top: 15%;
+
+}
+
+.botao-formulario{
+    width: 200px;
+    text-align: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: medium;
+    cursor: pointer;
+    left: 100px;
+    border-radius: 30px;
+    transition-duration: 400ms;
+    background-color: var(--cor-principal-opaca);
+    color: var(--cor-letra-principal);
 }
