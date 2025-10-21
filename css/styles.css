@@ -31,7 +31,7 @@ input {
     padding: 2px 5px;
 }
 
-textarea{
+textarea {
     resize: none;
     min-width: 300px;
     min-height: 150px;
@@ -148,6 +148,7 @@ td a {
     height: 300px;
     background-size: cover;
     background-position: center;
+    background-color: var(--cor-principal-opaca);
     background-image: url(../img/cenoura2.jpg);
     border-radius: 50px;
     margin-left: 20%;
@@ -230,7 +231,7 @@ td a {
 
 }
 
-.botao-formulario{
+.botao-formulario {
     width: 200px;
     text-align: center;
     padding: 16px 32px;
@@ -242,4 +243,22 @@ td a {
     transition-duration: 400ms;
     background-color: var(--cor-principal-opaca);
     color: var(--cor-letra-principal);
+}
+
+.div-sucesso {
+    margin-top: 50px;
+    background-color: var(--cor-branco-opaco);
+    left: 20%;
+    height: 400px;
+    width: 60%;
+    position: relative;
+    border-radius: 40px;
+    text-align: center;
+    padding-top: 180px;
+}
+
+.botao-voltar{
+    text-decoration: none;
+    color: var(--cor-letra-principal);
+ 
 }
