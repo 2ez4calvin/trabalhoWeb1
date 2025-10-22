@@ -5,7 +5,7 @@
     --cor-botao-hover: rgb(34, 133, 133);
     --cor-branco-opaco: rgba(255, 255, 255, 0.8);
     --cor-branco-opaco2: rgba(255, 255, 255, 0.6);
-
+    --cor-backgeound-secundario: rgba(31, 100, 35, 0.7);
     /*
     Cor principal: Verde do site
     Letra principal: Branco das letras
@@ -245,21 +245,45 @@ td a {
     color: var(--cor-letra-principal);
 }
 
-.div-sucesso {
+#background {
     margin-top: 50px;
-    background-color: var(--cor-principal-opaca);
-    left: 20%;
-    height: 400px;
+    background-color: var(--cor-backgeound-secundario);
+    height: 360px;
     width: 60%;
     position: relative;
     border-radius: 40px;
     text-align: center;
-    padding-top: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#background_sucesso {
+    background-color: var(--cor-principal-opaca);
+    height: 300px;
+    width: 80%;
+    border-radius: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+#background_sucesso:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
 .botao-voltar {
     text-decoration: none;
-    color: var(--cor-letra-principal);
+    color: var(--cor-branco-opaco2);
+    margin-top: 15px;
 }
 
 footer {
@@ -268,16 +292,17 @@ footer {
     color: var(--cor-letra-principal);
 }
 
-#footer_content {
+#footer_background {
     background-color: var(--cor-principal-opaca);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    padding: 3rem 3.5rem;
+    padding: 1.5rem 3rem;
 
 }
 
-#footer_contacts h2 {
+#footer_info h2 {
     margin-bottom: 0.75rem;
+
 }
 
 .footer_list {
@@ -290,11 +315,13 @@ footer {
 
 .footer_list .footer-link {
     text-decoration: none;
-    color: var(--cor-branco-opaco2)
+    color: var(--cor-branco-opaco2);
+
 }
 
 .footer_list .footer-link:hover {
-    color: var
+    color: var(--cor-letra-principal);
+
 }
 
 #footer_inscreva-se {
@@ -306,10 +333,60 @@ footer {
 #final_rodape {
     background-color: var(--cor-principal);
     text-align: center;
-    padding: 1rem 0;
+    padding: 0.2rem 0;
     margin-top: -20px;
 }
 
 div p {
     color: var(--cor-branco-opaco2);
+}
+
+.color_h2 {
+    color: var(--cor-letra-principal);
+}
+
+.i {
+    font-size: 4rem;
+    margin-top: 20px;
+}
+
+#grade-produto {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 70%;
+    margin: 40px auto;
+    text-align: center;
+    color: var(--cor-letra-principal);
+}
+
+.produto {
+    background-color: var(--cor-backgeound-secundario);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+  
+}
+
+.produto img {
+    border-radius: 10px;
+}
+
+button {
+    background-color: var(--cor-principal-opaca);
+    color: var(--cor-letra-principal);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--cor-principal);
 }
