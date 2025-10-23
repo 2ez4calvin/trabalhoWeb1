@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
 </head>
+
 <body>
     <header>
         <img src="img/logoIFGVertical.jpg" class="logo">
@@ -18,7 +22,100 @@
             <a href="contato.html">Contato</a>
         </nav>
     </header>
-    <h1 class ="tituloPag">Carrinho de Compras</h1>
-    <p>Seu carrinho está vazio.</p>
+
+    <div id="grade-carrinho">
+        <div class="carrinho">
+            <h3>Abóbora Japonesa</h3>
+            <div class="estrutura-img-nome">
+                <img src="img/abobora.jpg" alt="Abóbora Japonesa">
+                <div class="info">
+                    <p class="p-carrinho">Preço: R$ 10,00/Kg</p>
+                    <label>Qtd:
+                        <input type="number" min="1" value="1">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="carrinho">
+            <h3>Cenoura</h3>
+            <div class="estrutura-img-nome">
+                <img src="img/cenoura.webp" alt="Cenoura">
+                <div class="info">
+                    <p class="p-carrinho">Preço: R$ 7,00/Kg</p>
+                    <label>Qtd:
+                        <input type="number" min="1" value="1">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="carrinho">
+            <h3>Batata Inglesa</h3>
+            <div class="estrutura-img-nome">
+                <img src="img/batata.jpg" alt="Batata Inglesa">
+                <div class="info">
+                    <p class="p-carrinho">Preço: R$ 8,00/Kg</p>
+                    <label>Qtd:
+                        <input type="number" min="1" value="1">
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botão finalizar compra -->
+        <div>
+            <nav>
+                <a href="sucesso-pedido.html">
+                    <button class="finalizar">Finalizar Compra</button>
+            </nav>
+        </div>
+    </div>
+    <p> </p>
+    <footer>
+        <div id="footer_background">
+            <div id="footer_info">
+                <h2>Vendinha Cabulosa</h2>
+                <p> Frutas e verduras fresquinhas todos os dias!</p>
+
+            </div>
+
+            <ul class="footer_list">
+                <li>
+                    <h3>Atendimento</h3>
+                </li>
+                <li>
+                    <a href="contato.html" class="footer-link">Contato</a>
+                </li>
+            </ul>
+            <ul class="footer_list">
+                <li>
+                    <h3>Institucional</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Quem Somos</a>
+                </li>
+            </ul>
+            <div id="footer_inscreva-se">
+                <h3>Inscreva-se</h3>
+                <p>
+                    Inscreva-se para receber ofertas e novidades!
+                </p>
+
+                <div id="input_inscreva-se">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-solid fa-envelope"></i>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div id="final_rodape">
+            &#169
+            Vendinha Cabulosa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 </body>
-</html> 
+
+</html>
