@@ -57,7 +57,7 @@ textarea {
 body {
     /* Classe para definicao do body*/
     min-height: 100vh;
-    background-image: url(../img/frutas.jpg);
+    background-color: ;
     background-size: cover;
     background-position: center;
 }
@@ -115,30 +115,7 @@ td a {
 }
 
 
-.logo {
-    /*CSS da parte da esquerda do header, onde o logo do IFG esta
-    */
-    width: 100px;
-    height: 80px;
-    object-fit: contain;
-}
 
-.titulo-header {
-    /*CSS do titulo do header e localizacao dele
-    */
-    color: var(--cor-letra-principal);
-}
-
-.navbar a {
-    /*CSS da parte do navbar do header
-    */
-    position: relative;
-    font: 20px;
-    font-weight: 500;
-    color: var(--cor-letra-principal);
-    text-decoration: none;
-    margin-left: 40px;
-}
 
 .banner {
     /*Banner da pagina principal */
@@ -359,11 +336,12 @@ div p {
     margin-top: 20px;
 }
 
+
 #grade-produto {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     padding: 5 20px;
     text-align: center;
     flex-wrap: wrap;
