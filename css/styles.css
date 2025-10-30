@@ -1,23 +1,36 @@
 :root {
-    --cor-principal: rgb(46, 125, 50);
+    --cor-principal: rgba(7, 75, 4, 0.9);
     --cor-letra-principal: rgb(255, 255, 255);
     --cor-principal-opaca: rgba(46, 125, 50, 0.8);
     --cor-botao-hover: rgb(34, 133, 133);
     --cor-branco-opaco: rgba(255, 255, 255, 0.8);
-    --cor-branco-opaco2: rgba(255, 255, 255, 0.6);
     --cor-backgeound-secundario: rgba(31, 100, 35, 0.7);
-    /*
-    Cor principal: Verde do site
-    Letra principal: Branco das letras
-    Botao hover: Cor quando passa o mouse em cima do botao
-    */
+    --cor-letra-destaque: rgb(23, 207, 231);
+
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+
+
+.navbar{
+    background-color: var(--cor-principal) ;
+}
+
+.navbar-nav .nav-link {
+    color: var(--cor-letra-principal);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--cor-letra-destaque) !important;
+    font-weight: bold;
+}
+
+
+.navbar-nav .nav-link:hover {
+     color: var(--cor-letra-destaque);
+}
+
+.navbar .navbar-nav{
+    margin-left: auto;
 }
 
 select {
@@ -57,26 +70,12 @@ textarea {
 body {
     /* Classe para definicao do body*/
     min-height: 100vh;
-    background-color: ;
+    background-color: blue;
     background-size: cover;
     background-position: center;
+    
 }
 
-header {
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    background-color: var(--cor-principal-opaca);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    position: sticky;
-    /*MUDAR AQUI SE NAO GOSTAR DO COMPORTAMENTO HEADER*/
-    max-height: 100px;
-
-}
 
 
 .botao {
@@ -109,12 +108,6 @@ td a {
     color: var(--cor-letra-principal);
     font-weight: bolder;
 }
-
-.margem-20 {
-    margin-right: 20px;
-}
-
-
 
 
 .banner {

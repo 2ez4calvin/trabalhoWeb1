@@ -10,89 +10,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu inicial</title>
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar bg-body-tertiary">
-            <div class="container">
-                <a class="navbar-brand" href="index.html">
-                    <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="80">
-                </a>  
-            </div>
-            <a href="index.html" class="margem-20">Início</a>
-            <a href="produtos.html" class="margem-20">Produtos</a>
-            <a href="carrinho.html" class="margem-20">Carrinho</a>
-            <a href="contato.html">Contato</a>
-        </nav>
-    </header>
-    <main>
-    <section class="banner">
-        <p class="frase-banner">Cenoura no melhor preço do mercado!</p>
-        <a href="produtos.html" class="botao-banner" target="_blank">VER MAIS</a>
-    </section>
 
-    <div class="botoes-index">
-        <div class="botao-item">
-            <a href="index.html" class="botao">Início</a>
-        </div>
-        <div class="botao-item">
-            <a href="produtos.html" class="botao">Produtos</a>
-        </div>
-        <div class="botao-item">
-            <a href="contato.html" class="botao">Contato</a>
-        </div>
-        <div class="botao-item">
-            <a href="carrinho.html" class="botao" target="_blank">Carrinho</a>
-        </div>
-    </div>
-    <footer>
-        <div id="footer_background">
-            <div id="footer_info">
-                <h2>Vendinha Cabulosa</h2>
-                <p> Frutas e verduras fresquinhas todos os dias!</p>
-
-            </div>
-
-            <ul class="footer_list">
-                <li>
-                    <h3>Atendimento</h3>
-                </li>
-                <li>
-                    <a href="contato.html" class="footer-link">Contato</a>
-                </li>
-            </ul>
-            <ul class="footer_list">
-                <li>
-                    <h3>Institucional</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Quem Somos</a>
-                </li>
-            </ul>
-            <div id="footer_inscreva-se">
-                <h3>Inscreva-se</h3>
-                <p>
-                    Inscreva-se para receber ofertas e novidades!
-                </p>
-
-                <div id="input_inscreva-se">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-solid fa-envelope"></i>
-                    </button>
-
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="80" class="d-inline-block align-text-top">
+            </a>
+            <h1>Lojinha Cabulosa</h1>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav">
+                    <a href="index.html" class="nav-link active">Início</a>
+                    <a href="produtos.html" class="nav-link">Produtos</a>
+                    <a href="carrinho.html" class="nav-link">Carrinho</a>
+                    <a href="contato.html" class="nav-link">Contato</a>
                 </div>
             </div>
         </div>
-        <div id="final_rodape">
-            &#169
-            Vendinha Cabulosa. Todos os direitos reservados.</p>
+    </nav>
+
+    <main>
+        <section class="banner">
+            <p class="frase-banner">Cenoura no melhor preço do mercado!</p>
+            <a href="produtos.html" class="botao-banner" target="_blank">VER MAIS</a>
+        </section>
+
+        <div class="botoes-index">
+            <div class="botao-item">
+                <a href="index.html" class="botao">Início</a>
+            </div>
+            <div class="botao-item">
+                <a href="produtos.html" class="botao">Produtos</a>
+            </div>
+            <div class="botao-item">
+                <a href="contato.html" class="botao">Contato</a>
+            </div>
+            <div class="botao-item">
+                <a href="carrinho.html" class="botao" target="_blank">Carrinho</a>
+            </div>
         </div>
+        <footer>
+            <div id="footer_background">
+                <div id="footer_info">
+                    <h2>Vendinha Cabulosa</h2>
+                    <p> Frutas e verduras fresquinhas todos os dias!</p>
+
+                </div>
+
+                <ul class="footer_list">
+                    <li>
+                        <h3>Atendimento</h3>
+                    </li>
+                    <li>
+                        <a href="contato.html" class="footer-link">Contato</a>
+                    </li>
+                </ul>
+                <ul class="footer_list">
+                    <li>
+                        <h3>Institucional</h3>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link">Quem Somos</a>
+                    </li>
+                </ul>
+                <div id="footer_inscreva-se">
+                    <h3>Inscreva-se</h3>
+                    <p>
+                        Inscreva-se para receber ofertas e novidades!
+                    </p>
+
+                    <div id="input_inscreva-se">
+                        <input type="email" id="email">
+                        <button>
+                            <i class="fa-solid fa-envelope"></i>
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="final_rodape">
+                &#169
+                Vendinha Cabulosa. Todos os direitos reservados.</p>
+            </div>
 
 
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                crossorigin="anonymous"></script>
 </body>
 
 </html>
