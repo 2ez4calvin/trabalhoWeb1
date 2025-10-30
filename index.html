@@ -16,29 +16,129 @@
 
 <body class="body-cor">
 
-    <nav class="navbar navbar-expand">
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
-                <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="80" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
+                <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
+                    class="d-inline-block align-text-top">
             </a>
             <h1>Lojinha Cabulosa</h1>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <div class="navbar-nav">
-                    <a href="index.html" class="nav-link active">Início</a>
-                    <a href="produtos.html" class="nav-link">Produtos</a>
-                    <a href="carrinho.html" class="nav-link">Carrinho</a>
-                    <a href="contato.html" class="nav-link">Contato</a>
-                </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="produtos.html">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">Carrinho</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Minha conta</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
-
     <main>
-    
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-                crossorigin="anonymous"></script>
+        <div id="carrossel-pagina-inicial" class="carousel slide carousel-fade" data-bs-touch="false"
+            data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="img/batata_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Batata">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
+                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/cenoura_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Cenoura">
+                    <div class="carousel-caption d-none d-md-block ">
+                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
+                        <a href="produtos.html" class="btn btn-carousel button">Ver Produtos</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/maca_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Maça">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
+                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-pagina-inicial"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrossel-pagina-inicial"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
     </main>
+    <footer>
+        <div id="footer_background">
+            <div id="footer_info">
+                <h2>Vendinha Cabulosa</h2>
+                <p> Frutas e verduras fresquinhas todos os dias!</p>
+            </div>
+            <ul class="footer_list">
+                <li>
+                    <h3>Atendimento</h3>
+                </li>
+                <li>
+                    <a href="contato.html" class="footer-link">Contato</a>
+                </li>
+            </ul>
+            <ul class="footer_list">
+                <li>
+                    <h3>Institucional</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Quem Somos</a>
+                </li>
+            </ul>
+            <div id="footer_inscreva-se">
+                <h3>Inscreva-se</h3>
+                <p>
+                    Inscreva-se para receber ofertas e novidades!
+                </p>
+
+                <div id="input_inscreva-se">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-solid fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="final_rodape">
+            &#169
+            Vendinha Cabulosa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

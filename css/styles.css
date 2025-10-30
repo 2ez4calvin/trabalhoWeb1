@@ -1,11 +1,11 @@
 :root {
-    --cor-principal: rgba(22, 7, 109, 1);
+    --cor-principal: rgb(29, 158, 51);
+    --cor-rodape: rgb(17, 114, 33);
     --cor-letra-principal: rgb(255, 255, 255);
-    --cor-principal-opaca: rgba(22, 7, 109, 0.8);
-    --cor-botao-hover: rgb(34, 133, 133);
+    --cor-botao-hover: rgb(16, 105, 79);
     --cor-branco-opaco: rgba(255, 255, 255, 0.8);
     --cor-backgeound-secundario: rgba(31, 100, 35, 0.7);
-    --cor-letra-destaque: rgb(23, 207, 231);
+    --cor-letra-destaque: rgb(237, 255, 71);
     --cor-claro-fraco:rgb(230,230,230);
 
 }
@@ -50,142 +50,73 @@ textarea {
     min-height: 150px;
 }
 
-.body-cor{
-    background-color:var(--cor-claro-fraco);
+.navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path stroke="rgba(255,255,255,1)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg>') !important;
+    width: 1.5em;
+    height: 1.5em;
 }
+
 
 h1{
     color: var(--cor-letra-principal) !important;
 }
 
-.centralizar {
-    /* Classe para centralizar tabelas*/
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    border-collapse: separate;
-    border-spacing: 15px;
+.imagem-carrossel{
+    width: 100%;
+    max-height: 400px;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
 }
 
-.tituloPagina {
-    /*Classe padrao para os titulos das paginas*/
-
-    text-align: center;
-    color: var(--cor-letra-principal);
-    background-color: var(--cor-principal);
+.carousel-inner {
+    width: 100%;
+    max-height: 400px !important;
+    display: flex;
+    align-items: center;
 }
+
+.btn-carousel {
+    background-color: var(--cor-rodape) !important;
+    color: var(--cor-letra-principal) !important;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 1.2 s ease;
+    margin-top: 15px;
+    display: inline-block;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition-duration: 500;
+}
+.btn-carousel:hover {
+    background-color: var(--cor-botao-hover) !important;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    color: var(--cor-letra-principal) !important;
+}
+
+
 
 body {
     /* Classe para definicao do body*/
     min-height: 100vh;
-    background-size: cover;
-    background-position: center;
-    
-}
-
-
-
-.botao {
-    /*Classe para definir estilo do botao index */
-    color: var(--cor-letra-principal);
-    background-color: var(--cor-principal);
-    padding: 60px 80px;
-    text-align: center;
-    font-size: xx-large;
-    background-color: var(--cor-principal);
-    border-radius: 30px;
-    transition-duration: 400ms;
-    align-items: center;
-    justify-content: center;
     display: flex;
-    min-height: 150px;
-    text-decoration: none;
+    flex-direction: column;
+    background-color: var(--cor-claro-fraco) !important;
 }
 
-.botao:hover {
-    /*Hover eh a acao de passar o mouse, use essa classe para definir
-    a estilizacao de quando passa o mouse no botao*/
-    background-color: var(--cor-botao-hover);
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px black;
+main{
+    flex: 1;
+    padding: 2em;
+    margin-top: 100px;
 }
 
 td a {
     text-decoration: none;
     color: var(--cor-letra-principal);
     font-weight: bolder;
-}
-
-
-.banner {
-    /*Banner da pagina principal */
-    margin-top: 80px;
-    width: 60%;
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--cor-principal-opaca);
-    background-image: url(../img/cenoura2.jpg);
-    border-radius: 50px;
-    margin-left: 20%;
-    text-align: center;
-    z-index: 10;
-    position: relative;
-}
-
-.botao-banner {
-    /*Botao do banner na pagina index*/
-    width: 200px;
-    text-align: center;
-    padding: 16px 32px;
-    text-decoration: none;
-    font-size: medium;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 180px;
-    border-radius: 30px;
-    transition-duration: 400ms;
-    background-color: var(--cor-principal-opaca);
-    color: var(--cor-letra-principal);
-}
-
-.botao-banner:hover {
-    /*Hover eh a acao de passar o mouse, use essa classe para definir
-    a estilizacao de quando passa o mouse no botao*/
-    background-color: var(--cor-botao-hover);
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px black;
-}
-
-
-.botoes-index {
-    /*Parte da tabela dos botoes na pagina index*/
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 50px;
-    padding: 0 10px;
-    flex-wrap: wrap;
-}
-
-.botao-item {
-    /*Comportamento do bbotao na div, funciona de maneira similar a uma tabela*/
-    flex: 1;
-    min-width: 200px;
-    max-width: 400px;
-}
-
-.frase-banner {
-    /*CSS da frase do topo do banner */
-    margin-top: 20px;
-    text-align: center;
-    font-size: 30px;
-    color: var(--cor-letra-principal);
-    background-color: var(--cor-principal-opaca);
-    border-radius: 50px;
-    margin-left: 20%;
-    margin-right: 20%;
 }
 
 
@@ -280,7 +211,7 @@ footer {
 }
 
 #footer_background {
-    background-color: var(--cor-principal-opaca);
+    background-color: var(--cor-principal);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 1.5rem 3rem;
@@ -318,7 +249,7 @@ footer {
 }
 
 #final_rodape {
-    background-color: var(--cor-principal);
+    background-color: var(--cor-rodape  );
     text-align: center;
     padding: 0.2rem 0;
     margin-top: -20px;
