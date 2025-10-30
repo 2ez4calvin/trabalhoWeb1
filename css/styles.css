@@ -1,11 +1,12 @@
 :root {
-    --cor-principal: rgba(7, 75, 4, 0.9);
+    --cor-principal: rgba(22, 7, 109, 1);
     --cor-letra-principal: rgb(255, 255, 255);
-    --cor-principal-opaca: rgba(46, 125, 50, 0.8);
+    --cor-principal-opaca: rgba(22, 7, 109, 0.8);
     --cor-botao-hover: rgb(34, 133, 133);
     --cor-branco-opaco: rgba(255, 255, 255, 0.8);
     --cor-backgeound-secundario: rgba(31, 100, 35, 0.7);
     --cor-letra-destaque: rgb(23, 207, 231);
+    --cor-claro-fraco:rgb(230,230,230);
 
 }
 
@@ -33,7 +34,7 @@
     margin-left: auto;
 }
 
-select {
+select{
     font-size: 0.9rem;
     padding: 2px 5px;
 }
@@ -47,6 +48,14 @@ textarea {
     resize: none;
     min-width: 300px;
     min-height: 150px;
+}
+
+.body-cor{
+    background-color:var(--cor-claro-fraco);
+}
+
+h1{
+    color: var(--cor-letra-principal) !important;
 }
 
 .centralizar {
@@ -70,7 +79,6 @@ textarea {
 body {
     /* Classe para definicao do body*/
     min-height: 100vh;
-    background-color: blue;
     background-size: cover;
     background-position: center;
     
