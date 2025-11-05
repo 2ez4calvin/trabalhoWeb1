@@ -289,15 +289,12 @@ div p {
 }
 
 
-.card_img {     
-    width: 60%;
-    height: auto;
-    border-radius: 10px;    
-    display: flex;
-    justify-content: center;
-    margin: 10px auto;
-
-    
+.card_img {
+  width: 100%;          
+  height: 250px;        
+  object-fit: cover;    /* corta as bordas para não distorcer */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 
