@@ -3,84 +3,115 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Carrinho de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
+    <title>Produtos</title>
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
 </head>
 
 <body>
     <header>
-        <img src="img/logoIFGVertical.jpg" class="logo">
-        <h1 class="titulo-header">Vendinha Cabulosa</h1>
-        <nav class="navbar">
-            <a href="index.html" class="margem-20">Início</a>
-            <a href="produtos.html" class="margem-20">Produtos</a>
-            <a href="carrinho.html" class="margem-20">Carrinho</a>
-            <a href="contato.html">Contato</a>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
+                    <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
+                        class="d-inline-block align-text-top">
+                </a>
+                <h1>Lojinha Cabulosa</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  active" aria-current="page" href="produtos.html">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrinho.html">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Minha conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
-    <div id="grade-carrinho">
-        <div class="carrinho">
-            <h3>Abóbora Japonesa</h3>
-            <div class="estrutura-img-nome">
-                <img src="img/abobora.jpg" alt="Abóbora Japonesa">
-                <div class="info">
-                    <p class="p-carrinho">Preço: R$ 10,00/Kg</p>
-                    <label>Qtd:
-                        <input type="number" min="1" value="1">
-                    </label>
+    <main>
+        <div id="grade-carrinho" class="container">
+            <div class="row">
+                <div class="carrinho">
+                    <h3>Abóbora Japonesa</h3>
+                    <div class="estrutura-img-nome">
+                        <img src="img/abobora.jpg" alt="Abóbora Japonesa">
+                        <div class="info">
+                            <p class="p-carrinho">Preço: R$ 10,00/Kg</p>
+                            <label>Qtd:
+                                <input type="number" min="1" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carrinho">
+                    <h3>Cenoura</h3>
+                    <div class="estrutura-img-nome">
+                        <img src="img/cenoura.webp" alt="Cenoura">
+                        <div class="info">
+                            <p class="p-carrinho">Preço: R$ 7,00/Kg</p>
+                            <label>Qtd:
+                                <input type="number" min="1" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carrinho">
+                    <h3>Batata Inglesa</h3>
+                    <div class="estrutura-img-nome">
+                        <img src="img/batata.jpg" alt="Batata Inglesa">
+                        <div class="info">
+                            <p class="p-carrinho">Preço: R$ 8,00/Kg</p>
+                            <label>Qtd:
+                                <input type="number" min="1" value="1">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botão finalizar compra -->
+                <div>
+                    <nav>
+                        <a href="sucesso-pedido.html">
+                            <button class="finalizar">Finalizar Compra</button></a>
+                    </nav>
                 </div>
             </div>
         </div>
+    </main>
 
-        <div class="carrinho">
-            <h3>Cenoura</h3>
-            <div class="estrutura-img-nome">
-                <img src="img/cenoura.webp" alt="Cenoura">
-                <div class="info">
-                    <p class="p-carrinho">Preço: R$ 7,00/Kg</p>
-                    <label>Qtd:
-                        <input type="number" min="1" value="1">
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="carrinho">
-            <h3>Batata Inglesa</h3>
-            <div class="estrutura-img-nome">
-                <img src="img/batata.jpg" alt="Batata Inglesa">
-                <div class="info">
-                    <p class="p-carrinho">Preço: R$ 8,00/Kg</p>
-                    <label>Qtd:
-                        <input type="number" min="1" value="1">
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <!-- Botão finalizar compra -->
-        <div>
-            <nav>
-                <a href="sucesso-pedido.html">
-                    <button class="finalizar">Finalizar Compra</button></a>
-            </nav>
-        </div>
-    </div>
-    <p> </p>
-    <footer>
+<footer>
         <div id="footer_background">
             <div id="footer_info">
                 <h2>Vendinha Cabulosa</h2>
                 <p> Frutas e verduras fresquinhas todos os dias!</p>
-
             </div>
-
             <ul class="footer_list">
                 <li>
                     <h3>Atendimento</h3>
@@ -105,10 +136,9 @@
 
                 <div id="input_inscreva-se">
                     <input type="email" id="email">
-                    <button>
-                        <i class="fa-solid fa-envelope"></i>
+                    <button class="btn btn-success">
+                        <i class="fas fa-envelope"></i>
                     </button>
-
                 </div>
             </div>
         </div>
@@ -117,7 +147,9 @@
             Vendinha Cabulosa. Todos os direitos reservados.</p>
         </div>
     </footer>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>B07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </body>
 
 </html>
