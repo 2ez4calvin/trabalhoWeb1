@@ -279,6 +279,27 @@ div p {
     flex-wrap: wrap;
     color: var(--cor-letra-principal);
 }
+.card { 
+    width: 200px;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    padding: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.card_img {     
+    width: 60%;
+    height: auto;
+    border-radius: 10px;    
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+
+    
+}
+
 
 .produto {
     background-color: var(--cor-backgeound-secundario);
@@ -299,6 +320,8 @@ div p {
 .produto img {
     border-radius: 10px;
 }
+
+
 
 button {
     background-color: var(--cor-principal-opaca);
