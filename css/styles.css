@@ -69,6 +69,12 @@ h1 {
     object-position: center;
 }
 
+@media (max-width: 480px) {
+    .carousel {
+        display: none !important;
+    }
+}
+
 .carousel-inner {
     width: 100%;
     max-height: 400px !important;
@@ -98,7 +104,46 @@ h1 {
     color: var(--cor-letra-principal) !important;
 }
 
+.botoes-index {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 5vh;
+    padding: 0 10px;
+    flex-wrap: wrap;
+}
 
+.botao-item {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+
+}
+
+.botao {
+    /*Classe para definir estilo do botao index */
+    color: var(--cor-letra-principal);
+    background-color: var(--cor-principal);
+    padding: 60px 80px;
+    text-align: center;
+    font-size: xx-large;
+    background-color: var(--cor-principal);
+    border-radius: 30px;
+    transition-duration: 400ms;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    min-height: 150px;
+    text-decoration: none;
+}
+
+.botao:hover {
+    /*Hover eh a acao de passar o mouse, use essa classe para definir
+    a estilizacao de quando passa o mouse no botao*/
+    background-color: var(--cor-botao-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px black;
+}
 
 body {
     /* Classe para definicao do body*/
@@ -111,41 +156,9 @@ body {
 main {
     flex: 1;
     padding: 2em;
-    margin-top: 100px;
 }
 
-.div-contato {
-    /*Parte da div do formulario de contato*/
-    margin-top: 50px;
-    background-color: var(--cor-branco-opaco);
-    left: 20%;
-    height: 500px;
-    width: 60%;
-    position: relative;
-    border-radius: 40px;
-}
 
-.contato-formulario {
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    position: absolute;
-    top: 15%;
-
-}
-
-.botao-formulario {
-    width: 200px;
-    text-align: center;
-    padding: 16px 32px;
-    text-decoration: none;
-    font-size: medium;
-    cursor: pointer;
-    left: 100px;
-    border-radius: 30px;
-    transition-duration: 400ms;
-    background-color: var(--cor-principal-opaca);
-    color: var(--cor-letra-principal);
-}
 
 #background {
     margin-top: 50px;
