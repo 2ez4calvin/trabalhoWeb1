@@ -104,6 +104,17 @@ h1 {
     color: var(--cor-letra-principal) !important;
 }
 
+.btn-primary{
+    background-color: var(--cor-principal) !important;    
+    border-color: var(--cor-principal) !important;
+}
+
+
+.btn-primary:hover{
+    background-color: var(--cor-botao-hover) !important;    
+    border-color: var(--cor-botao-hover) !important;
+}
+
 .botoes-index {
     display: flex;
     justify-content: center;
@@ -177,7 +188,7 @@ main {
 }
 
 #background_sucesso {
-    background-color: var(--cor-principal-opaca);
+    background-color: var(--cor-principal);
     height: 300px;
     margin-top: 20px;
     left: 10%;
@@ -206,7 +217,7 @@ main {
 }
 
 .botao-voltar:hover {
-    color: var(--cor-letra-principal);
+    color: var(--cor-botao-hover);
 }
 
 footer {
