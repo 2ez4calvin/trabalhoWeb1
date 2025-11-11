@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang pt-br>
 
@@ -14,41 +15,43 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body class="body-cor">
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
+                    <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
+                        class="d-inline-block align-text-top">
+                </a>
+                <h1>Lojinha Cabulosa</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrinho.html">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contato.html">Contato</a>
+                        </li>
 
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
-                <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
-                    class="d-inline-block align-text-top">
-            </a>
-            <h1>Lojinha Cabulosa</h1>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="produtos.html">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="carrinho.html">Carrinho</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contato.html">Contato</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Minha conta</a>
-                    </li>
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Minha conta</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     <main>
         <div id="carrossel-pagina-inicial" class="carousel slide carousel-fade" data-bs-touch="false"
             data-bs-ride="carousel">
@@ -94,48 +97,61 @@
                 <span class="visually-hidden">Próximo</span>
             </button>
         </div>
-    </main>
-    <footer>
-        <div id="footer_background">
-            <div id="footer_info">
-                <h2>Vendinha Cabulosa</h2>
-                <p> Frutas e verduras fresquinhas todos os dias!</p>
+        <div class="botoes-index">
+            <div class="botao-item">
+                <a href="index.html" class="botao">Início</a>
             </div>
-            <ul class="footer_list">
-                <li>
-                    <h3>Atendimento</h3>
-                </li>
-                <li>
-                    <a href="contato.html" class="footer-link">Contato</a>
-                </li>
-            </ul>
-            <ul class="footer_list">
-                <li>
-                    <h3>Institucional</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Quem Somos</a>
-                </li>
-            </ul>
-            <div id="footer_inscreva-se">
-                <h3>Inscreva-se</h3>
-                <p>
-                    Inscreva-se para receber ofertas e novidades!
-                </p>
+            <div class="botao-item">
+                <a href="produtos.html" class="botao">Produtos</a>
+            </div>
+            <div class="botao-item">
+                <a href="contato.html" class="botao">Contato</a>
+            </div>
+            <div class="botao-item">
+                <a href="carrinho.html" class="botao" target="_blank">Carrinho</a>
+            </div>
+        </div>
 
-                <div id="input_inscreva-se">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-solid fa-envelope"></i>
-                    </button>
-                </div>
+    </main>
+<footer>
+    <div id="footer_background">
+        <!-- Bloco com nome e descrição -->
+        <div id="footer_info">
+            <h2>Vendinha Cabulosa</h2>
+            <p>Frutas e verduras fresquinhas todos os dias!</p>
+        </div>
+
+        <!-- Lista de atendimento -->
+        <ul class="footer_list">
+            <li><h3>Atendimento</h3></li>
+            <li><a href="contato.html" class="footer-link">Contato</a></li>
+        </ul>
+
+        <!-- Lista institucional -->
+        <ul class="footer_list">
+            <li><h3>Institucional</h3></li>
+            <li><a href="#" class="footer-link">Quem Somos</a></li>
+        </ul>
+
+        <!-- Seção de inscrição -->
+        <div id="footer_inscreva-se">
+            <h3>Inscreva-se</h3>
+            <p>Receba ofertas e novidades!</p>
+
+            <div id="input_inscreva-se">
+                <input type="email" id="email" placeholder="Seu e-mail">
+                <button class="btn btn-success">
+                    <i class="fas fa-envelope"></i>
+                </button>
             </div>
         </div>
-        <div id="final_rodape">
-            &#169
-            Vendinha Cabulosa. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    </div>
+
+    <!-- Rodapé final -->
+    <div id="final_rodape">
+        &#169; Vendinha Cabulosa. Todos os direitos reservados.
+    </div>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

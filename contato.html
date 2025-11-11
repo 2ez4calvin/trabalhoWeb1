@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang pt-br>
 
@@ -10,49 +11,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
 <body>
     <header>
-        <img src="img/logoIFGVertical.jpg" class="logo">
-        <h1 class="titulo-header">Vendinha Cabulosa</h1>
-        <nav class="navbar">
-            <a href="index.html" class="margem-20">Início</a>
-            <a href="produtos.html" class="margem-20">Produtos</a>
-            <a href="carrinho.html" class="margem-20">Carrinho</a>
-            <a href="contato.html">Contato</a>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
+                    <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
+                        class="d-inline-block align-text-top">
+                </a>
+                <h1>Lojinha Cabulosa</h1>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Alternar navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="produtos.html">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrinho.html">Carrinho</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Minha conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
+    <main>
+        <form action="sucesso-contato.html" method="post" id="formulario-contato" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="nome-contato" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="nome-contato" placeholder="Nome para contato" required>
+                <div class="invalid-feedback">
+                    Por favor, insira seu nome.
+                </div>
+            </div>
 
-    <div class="div-contato">
-        <p class="frase-banner">Formulário para contato</p>
-        <div class="contato-formulario">
-            <form action="sucesso-contato.html" method="post" id="formulario-contato">
-                <label for="nome-contato">Nome:</label><br>
-                <input type="text" placeholder="Nome para contato" required><br>
-                <label for="email-contato">E-mail:</label><br>
-                <input type="email" placeholder="example@mail.com" required><br>
-                <label for="telefone-contato">Telefone:</label><br>
-                <input type="tel" placeholder="(XX)XXXXX-XXXX" pattern="[0-9]{11}"><small> Formato:
-                    (11)12345-6789 - Insira apenas números!</small><br>
-                <label for="assunto-contato">Assunto:</label><br>
-                <select name="assunto" id="assunto-contato" required>
-                    <option value=""> Escolha uma opção: </option>
+            <div class="mb-3">
+                <label for="email-contato" class="form-label">E-mail:</label>
+                <input type="email" class="form-control" id="email-contato" placeholder="exemplo@mail.com" required>
+                <div class="invalid-feedback">
+                    Por favor, insira um e-mail válido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="telefone-contato" class="form-label">Telefone:</label>
+                <input type="tel" class="form-control" id="telefone-contato" placeholder="11123456789"
+                    pattern="[0-9]{11}">
+                <div class="form-text">
+                    Formato: 11123456789 - Insira apenas números!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="assunto-contato" class="form-label">Assunto:</label>
+                <select class="form-select" name="assunto" id="assunto-contato" required>
+                    <option value="">Escolha uma opção:</option>
                     <option value="problemas-compra">Problemas com a compra</option>
                     <option value="feedback">Dicas ou sugestões</option>
                     <option value="problemas-tecnicos">Problemas com o site</option>
-                </select><br>
-                <label for="descricao">Descrição:</label><br>
-                <textarea id="descricao" name="descricao" required maxlength="250"></textarea><br>
-                <button type="submit" form="formulario-contato"
-                 value="submit" class="botao-formulario">Enviar</button>
-<!--
-Falta centralizar esse botao!!!!!!!
--->
-            </form>
-        </div>
-    </div>
-     <p> </p>
+                </select>
+                <div class="invalid-feedback">
+                    Por favor, selecione um assunto.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea class="form-control" id="descricao" name="descricao" rows="4" required
+                    maxlength="250"></textarea>
+                <div class="form-text">
+                    Máximo de 250 caracteres.
+                </div>
+                <div class="invalid-feedback">
+                    Por favor, insira uma descrição.
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+    </main>
+
     <footer>
         <div id="footer_background">
             <div id="footer_info">
@@ -97,6 +151,9 @@ Falta centralizar esse botao!!!!!!!
             Vendinha Cabulosa. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
