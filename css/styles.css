@@ -105,14 +105,14 @@ h1 {
     color: var(--cor-letra-principal) !important;
 }
 
-.btn-primary{
-    background-color: var(--cor-principal) !important;    
+.btn-primary {
+    background-color: var(--cor-principal) !important;
     border-color: var(--cor-principal) !important;
 }
 
 
-.btn-primary:hover{
-    background-color: var(--cor-botao-hover) !important;    
+.btn-primary:hover {
+    background-color: var(--cor-botao-hover) !important;
     border-color: var(--cor-botao-hover) !important;
 }
 
@@ -330,81 +330,51 @@ div p {
 }
 
 
+.titulo-carrinho {
+    text-align: center;
+    color: var(--cor-letra-principal);
+    margin-bottom: 30px;
+}
 
-#grade-carrinho {
-    display: grid;
-    grid-template-columns: repeat(1, 2fr);
-    gap: 20px;
-    width: 50%;
-    margin: 50px auto;
+/*.grade-carrinho {
+    margin: 100px;
     color: var(--cor-letra-principal);
     text-align: left;
 }
-
-.carrinho {
-    background-color: var(--cor-backgeound-secundario);
-    border-radius: 20px;
-    padding: 20px;
-
-}
-
-.carrinho h3 {
+*/
+.text-carrinho {
+    color: var(--cor-principal);
     text-align: center;
-    margin-bottom: 15px;
 }
 
-.estrutura-img-nome {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+/*estilo dos botoes de aumentar e diminuir quantidade*/
+.btn-outline-dark {
+    color: var(--cor-principal) !important;
+    border-color: var(--cor-principal)!important;
 }
 
-.carrinho img {
+.btn-outline-dark:hover {
+    background-color: var(--cor-botao-hover) !important;
+    color: white;
+}
+
+/*pra alinhar o texto abaixo dos botoes de aumentar e diminuir quantidade*/
+.text-right{
+    text-align: right !important;
+}
+
+.img-carrinho {
     width: 100px;
     height: 100px;
+    object-fit: cover;
+    /* corta as bordas para não distorcer */
     border-radius: 10px;
 }
 
-/*estilo da div info carrinho*/
-.info {
-    display: flex;
-    flex-direction: column;
+.titulo-pedido {
+ color: var(--cor-principal) !important;
+ 
 }
 
-/*estilo dos textos carrinho*/
-.info p,
-.info label {
-    margin: 5px 0;
-}
 
-/*estilo do input quantidade carrinho*/
-.info input {
-    width: 60px;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid var(--cor-letra-principal)
-}
 
-/*botao finalizar compra carrinho + transição*/
-.finalizar {
-    grid-column: 1 / -1;
-    padding: 15px;
-    background-color: var(--cor-principal-opaca);
-    color: var(--cor-letra-principal);
-
-    border-radius: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.finalizar:hover {
-    background-color: var(--cor-principal);
-    transform: scale(1.05);
-}
-
-/*so pra alterar a cor do <p>*/
-.p-carrinho {
-    color: var(--cor-letra-principal);
-}

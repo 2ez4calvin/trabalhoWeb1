@@ -17,7 +17,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg fixed-top">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
                     <img src="img/logoIFGVertical.jpg" alt="Bootstrap" width="80" height="90    "
@@ -45,68 +45,188 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Minha conta</a>
+                            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Olá Pessoa!
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="novo_usuario.html">Cadastrar</a></li>
+                                <li><a class="dropdown-item" href="login.html">Entrar</a></li>
+                                <li><a class="dropdown-item" href="meus_dados.html">Meus Dados</a></li>
+                                <li><a class="dropdown-item" href="meus_pedidos.html">Meus Pedidos</a></li>
+                            </ul>
                         </li>
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <main>
-        <div id="grade-carrinho" class="container">
-            <div class="row">
-                <div class="carrinho">
-                    <h3>Abóbora Japonesa</h3>
-                    <div class="estrutura-img-nome">
-                        <img src="img/abobora.jpg" alt="Abóbora Japonesa">
-                        <div class="info">
-                            <p class="p-carrinho">Preço: R$ 10,00/Kg</p>
-                            <label>Qtd:
-                                <input type="number" min="1" value="1">
-                            </label>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="carrinho">
-                    <h3>Cenoura</h3>
-                    <div class="estrutura-img-nome">
-                        <img src="img/cenoura.webp" alt="Cenoura">
-                        <div class="info">
-                            <p class="p-carrinho">Preço: R$ 7,00/Kg</p>
-                            <label>Qtd:
-                                <input type="number" min="1" value="1">
-                            </label>
+        <div class="container-carrinho ">
+            <ul class="list-group mb-3">
+                <li class="list-group-item py3">
+                    <div class="row g-3">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <a href="#">
+                                <img src="img/maca.webp" class="img-thumbnail">
+                            </a>
                         </div>
-                    </div>
-                </div>
 
-                <div class="carrinho">
-                    <h3>Batata Inglesa</h3>
-                    <div class="estrutura-img-nome">
-                        <img src="img/batata.jpg" alt="Batata Inglesa">
-                        <div class="info">
-                            <p class="p-carrinho">Preço: R$ 8,00/Kg</p>
-                            <label>Qtd:
-                                <input type="number" min="1" value="1">
-                            </label>
+                        <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+                            <h4><b><a href="#" class="text-decoration-none text-carrinho">Maçã Fuji</a></b></h4>
+                            <small>Maças selecionadas de qualidade</small>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Botão finalizar compra -->
-                <div>
-                    <nav>
-                        <a href="sucesso-pedido.html">
-                            <div >
-                                <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+                        <div
+                            class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <input type="text" class="form-control text-center border-dark" value="2">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                    </svg>
+                                </button>
                             </div>
-                        </a>
+                            <div class="text-right mt-2">
+                                <small class="text-secondary"> Valor kg: R$ 10,00</small> <br>
+                                <span class="text-dark"> Total: R$ 20,00</span>
+                            </div>
+                        </div>
 
-                    </nav>
-                </div>
-            </div>
+                    </div>
+
+                </li>
+                <li class="list-group-item py3">
+                    <div class="row g-3">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <a href="#">
+                                <img src="img/abobora.jpg" class="img-thumbnail">
+                            </a>
+                        </div>
+
+                        <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+                            <h4><b><a href="#" class="text-decoration-none text-carrinho">Abobora Japonesa</a></b></h4>
+                            <small>Abóboras selecionadas de qualidade</small>
+                        </div>
+                        <div
+                            class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <input type="text" class="form-control text-center border-dark" value="1">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-right mt-2">
+                                <small class="text-secondary"> Valor kg: R$ 10,00</small> <br>
+                                <span class="text-dark"> Total: R$ 10,00</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+                <li class="list-group-item py3">
+                    <div class="row g-3">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <a href="#">
+                                <img src="img/cebola.webp" class="img-thumbnail">
+                            </a>
+                        </div>
+
+                        <div class="col-8 col-md-9 col-lg-7 col-xl-8 text-left align-self-center">
+                            <h4><b><a href="#" class="text-decoration-none text-carrinho">Cebola</a></b></h4>
+                            <small>Cabolas selecionadas de qualidade</small>
+                        </div>
+                        <div
+                            class="col-6 offset-6 col-sm-6 offset-sm-6 col-md-4 offset-md-8 col-lg-3 offset-lg-0 col-xl-2 align-self-center mt-3">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <input type="text" class="form-control text-center border-dark" value="3">
+                                <button type="button" class="btn btn-outline-dark border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-outline-danger border-dark btn-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="text-right mt-2">
+                                <small class="text-secondary"> Valor kg: R$ 7,00</small> <br>
+                                <span class="text-dark"> Total: R$ 21,00</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </li>
+                <li class="list-group-item py-3">
+                    <div class="text-right">
+                        <h4 class="text-dark mb-3">Valor Total: R$ 51,00</h4>
+                        <a href="produtos.html">
+                            <button type="button" class="btn btn-outline-success btn-lg">Continuar Comprando</button>
+                        </a>
+                        <a href="sucesso-pedido.html">
+                            <button type="button" class="btn btn-primary btn-lg">Finalizar Compra</button>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
+
     </main>
 
     <footer>
