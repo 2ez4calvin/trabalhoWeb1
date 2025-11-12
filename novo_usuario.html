@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu inicial</title>
+    <title>Cadastro de Usuário</title>
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+                            <a class="nav-link" href="index.html">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="produtos.html">Produtos</a>
@@ -54,7 +54,8 @@
                                 </svg>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="novo_usuario.html">Cadastrar</a></li>
+                                <li><a class="dropdown-item active" aria-current="page"
+                                        href="novo_usuario.html">Cadastrar</a></li>
                                 <li><a class="dropdown-item" href="login.html">Entrar</a></li>
                                 <li><a class="dropdown-item" href="meus_dados.html">Meus Dados</a></li>
                                 <li><a class="dropdown-item" href="meus_pedidos.html">Meus Pedidos</a></li>
@@ -67,109 +68,109 @@
         </nav>
     </header>
     <main>
-        <div id="carrossel-pagina-inicial" class="carousel slide carousel-fade" data-bs-touch="false"
-            data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/batata_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Batata">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/cenoura_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Cenoura">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel button">Ver Produtos</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/maca_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Maça">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-pagina-inicial"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carrossel-pagina-inicial"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
-        </div>
-        <div class="botoes-index">
-            <div class="botao-item">
-                <a href="index.html" class="botao">Início</a>
-            </div>
-            <div class="botao-item">
-                <a href="produtos.html" class="botao">Produtos</a>
-            </div>
-            <div class="botao-item">
-                <a href="contato.html" class="botao">Contato</a>
-            </div>
-            <div class="botao-item">
-                <a href="carrinho.html" class="botao" target="_blank">Carrinho</a>
-            </div>
-        </div>
 
+        <h2 class="mb-3 text-center titulo-background-verde-central">Cadastrar Usuário:</h2>
+        <form action="produtos.html" method="post" id="formulario-cadastro" class="needs-validation formulario-cadastro"
+            novalidate>
+            <div class="mb-3">
+                <label for="nome-cadastro" class="form-label">Nome completo:</label>
+                <input type="text" class="form-control" id="nome-cadastro" placeholder="Nome completo" required>
+                <div class="invalid-feedback">
+                    Por favor, insira seu nome.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email-cadastro" class="form-label">E-mail:</label>
+                <input type="email" class="form-control" id="email-cadastro" placeholder="exemplo@mail.com" required>
+                <div class="invalid-feedback">
+                    Por favor, insira um e-mail válido.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="senha-cadastro" class="form-label">Senha:</label>
+                <input type="password" class="form-control" id="senha-cadastro" required>
+                <div class="invalid-feedback">
+                    Por favor, insira uma senha!
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="senha-cadastro-confirm" class="form-label">Confirmação da senha:</label>
+                <input type="password" class="form-control" id="senha-cadastro-confirm" required>
+                <div class="invalid-feedback">
+                    Senhas nao batem!
+                </div>
+            </div>
+
+            <div class="centralizar-btn">
+                <button type="submit" class="btn btn-primary btn-centralizado">Cadastrar</button>
+            </div>
     </main>
     <footer>
         <div id="footer_background">
-            <!-- Bloco com nome e descrição -->
             <div id="footer_info">
                 <h2>Vendinha Cabulosa</h2>
-                <p>Frutas e verduras fresquinhas todos os dias!</p>
+                <p> Frutas e verduras fresquinhas todos os dias!</p>
+
             </div>
 
-            <!-- Lista de atendimento -->
             <ul class="footer_list">
                 <li>
                     <h3>Atendimento</h3>
                 </li>
-                <li><a href="contato.html" class="footer-link">Contato</a></li>
+                <li>
+                    <a href="contato.html" class="footer-link">Contato</a>
+                </li>
             </ul>
-
-            <!-- Lista institucional -->
             <ul class="footer_list">
                 <li>
                     <h3>Institucional</h3>
                 </li>
-                <li><a href="#" class="footer-link">Quem Somos</a></li>
+                <li>
+                    <a href="#" class="footer-link">Quem Somos</a>
+                </li>
             </ul>
-
-            <!-- Seção de inscrição -->
             <div id="footer_inscreva-se">
                 <h3>Inscreva-se</h3>
-                <p>Receba ofertas e novidades!</p>
+                <p>
+                    Inscreva-se para receber ofertas e novidades!
+                </p>
 
                 <div id="input_inscreva-se">
-                    <input type="email" id="email" placeholder="Seu e-mail">
-                    <button class="btn btn-success">
-                        <i class="fas fa-envelope"></i>
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-solid fa-envelope"></i>
                     </button>
+
                 </div>
             </div>
         </div>
-
-        <!-- Rodapé final -->
         <div id="final_rodape">
-            &#169; Vendinha Cabulosa. Todos os direitos reservados.
+            &#169
+            Vendinha Cabulosa. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script>
+        (function () {
+            'use strict'
+
+            var forms = document.querySelectorAll('.needs-validation')
+
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>

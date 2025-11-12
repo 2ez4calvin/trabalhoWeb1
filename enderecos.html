@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Menu inicial</title>
+    <title>Meus Endereços</title>
     <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Início</a>
+                            <a class="nav-link" href="index.html">Início</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="produtos.html">Produtos</a>
@@ -56,7 +56,8 @@
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li><a class="dropdown-item" href="novo_usuario.html">Cadastrar</a></li>
                                 <li><a class="dropdown-item" href="login.html">Entrar</a></li>
-                                <li><a class="dropdown-item" href="meus_dados.html">Meus Dados</a></li>
+                                <li><a class="dropdown-item active" aria-current="page" href="meus_dados.html">Meus
+                                        Dados</a></li>
                                 <li><a class="dropdown-item" href="meus_pedidos.html">Meus Pedidos</a></li>
                             </ul>
                         </li>
@@ -67,65 +68,50 @@
         </nav>
     </header>
     <main>
-        <div id="carrossel-pagina-inicial" class="carousel slide carousel-fade" data-bs-touch="false"
-            data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="1"
-                    aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carrossel-pagina-inicial" data-bs-slide-to="2"
-                    aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/batata_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Batata">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/cenoura_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Cenoura">
-                    <div class="carousel-caption d-none d-md-block ">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel button">Ver Produtos</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="img/maca_carrossel.jpg" class="d-block w-100 imagem-carrossel" alt="Maça">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h4>Verduras, legumes e Frutas da melhor qualidade!</h4>
-                        <a href="produtos.html" class="btn btn-carousel">Ver Produtos</a>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carrossel-pagina-inicial"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Anterior</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carrossel-pagina-inicial"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Próximo</span>
-            </button>
-        </div>
-        <div class="botoes-index">
-            <div class="botao-item">
-                <a href="index.html" class="botao">Início</a>
-            </div>
-            <div class="botao-item">
-                <a href="produtos.html" class="botao">Produtos</a>
-            </div>
-            <div class="botao-item">
-                <a href="contato.html" class="botao">Contato</a>
-            </div>
-            <div class="botao-item">
-                <a href="carrinho.html" class="botao" target="_blank">Carrinho</a>
-            </div>
-        </div>
 
+        <!--MENU LATERAL AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                <div class="d-flex flex-column flex-shrink-0 p-3 menu-lateral">
+                    <ul class="nav flex-column mb-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dados_pessoais.html">Dados Pessoais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="enderecos.html">Meus Endereços</a>
+                        </li>
+                    </ul>
+                </div>
+        <div class="row centralizar-cards">
+            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                <div class="card-header">
+                    Endereço 1
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Rua 15 Quadra 2 N° 150</p>
+                    <p>CEP: 15959-124</p>
+                    <p>Formosa - GO</p>
+                    <a href="#" class="btn btn-primary">Excluir Endereço</a>
+                </div>
+            </div>
+            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                <div class="card-header">
+                    Endereço 2
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Rua 2 Quadra 10 N° 132</p>
+                    <p>CEP: 15122-100</p>
+                    <p>Formosa - GO</p>
+                    <a href="#" class="btn btn-primary">Excluir Endereço</a>
+                </div>
+            </div>
+
+            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                <div class="card-body">
+                    <p class="card-text">Cadastrar novo Endereço</p>
+                    <a href="#" class="btn btn-primary">Cadastrar</a>
+                </div>
+            </div>
+
+        </div>
     </main>
     <footer>
         <div id="footer_background">
