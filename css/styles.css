@@ -211,6 +211,12 @@ main {
     transform: scale(1.03);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
+.margem-text-mgs{
+    text-decoration: none;
+    color: var(--cor-branco-opaco2);
+    margin-top: 15px;
+    transition: color 0
+}
 
 .botao-voltar {
     text-decoration: none;
@@ -220,7 +226,7 @@ main {
 }
 
 .botao-voltar:hover {
-    color: var(--cor-botao-hover);
+    color: var(--cor-letra-destaque);
 }
 
 footer {
