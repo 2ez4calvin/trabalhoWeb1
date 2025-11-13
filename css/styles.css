@@ -101,6 +101,7 @@ h1 {
 .btn-carousel:hover {
     background-color: var(--cor-botao-hover) !important;
     transform: translateY(-3px) scale(1.1);
+    border-color: var(--cor-botao-hover) !important;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     color: var(--cor-letra-principal) !important;
 }
