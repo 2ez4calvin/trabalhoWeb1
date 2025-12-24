@@ -1,6 +1,46 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const formsLogin = document.getElementById('formulario-cadastro')
+    const formsLogin = document.getElementById('formulario-login')
+    const formsCadastro = document.getElementById('formulario-cadastro')
+
+    //listener no submit do cadastro
+
+    if (formsCadastro) {
+        formsCadastro.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!formsCadastro.checkValidity()) {
+                formsCadastro.classList.add('was-validated');
+                return;
+            }
+
+            const nome = document.getElementById('nome-cadastro').value;
+            const email = document.getElementById('email-cadastro').value;
+            const senha = document.getElementById('senha-cadastro').value;
+            const confirmacaoSenha = document.getElementById('senha-cadastro-confirm').value;
+
+            const resultado = await cadastrar(nome, email, senha, confirmacaoSenha);
+
+            //Checar se deu certo ou nao
+            if (resultado.message === "Usuário registrado com sucesso.") {
+                alert(resultado.message);
+                window.location.href = 'index.html'
+            } else if(resultado.message === "E-mail inválido."){ 
+                alert(resultado.message);
+                document.getElementById('email-cadastro').value = '';
+                document.getElementById('email-cadastro').focus;
+            }else{
+                alert(resultado.message);
+                document.getElementById('senha-cadastro').value = '';
+                document.getElementById('senha-cadastro').focus;
+                document.getElementById('senha-cadastro-confirm').value = '';
+                document.getElementById('senha-cadastro-confirm').focus;
+            }
+        });
+    }
+
+
+    //listener do submit do login
 
     if (formsLogin) {
         formsLogin.addEventListener('submit', async function (event) {
@@ -11,8 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            const email = document.getElementById('email-cadastro').value;
-            const senha = document.getElementById('senha-cadastro').value;
+            const email = document.getElementById('email-login').value;
+            const senha = document.getElementById('senha-login').value;
 
             const resultado = await login(email, senha);
 
@@ -29,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 alert(resultado.message)
 
-                document.getElementById('senha-cadastro').value = '';
-                document.getElementById('email-cadastro').focus();
+                document.getElementById('senha-login').value = '';
+                document.getElementById('email-login').focus();
             }
 
 
@@ -38,12 +78,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     verificacaoUsuarioLogado();
 
+    //listener do logout
+
     const btnLogout = document.getElementById('btnLogout');
     if (btnLogout) {
         btnLogout.addEventListener('click', function (e) {
             e.preventDefault();
             logout();
         });
+    }
+
+    //listener dos produtos
+
+    if (window.location.pathname.includes('produtos.html') ||
+        document.querySelector('#produtos-container')) {
+        carregarProdutos();
     }
 });
 
@@ -108,7 +157,7 @@ function verificacaoUsuarioLogado() {
         document.getElementById("btnDados").style.display = 'block';
         document.getElementById("btnPedidos").style.display = 'block';
         document.getElementById("btnLogout").style.display = 'block';
-        document.getElementById("boasVindas").textContent = 'Bem vindo ' + localStorage.getItem('usuarioEmail');
+        document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + localStorage.getItem('usuarioEmail') + ' ';
     } else {
         console.log('Usuário NÃO logado');
         document.getElementById("btnCadastrar").style.display = 'block';
@@ -120,4 +169,122 @@ function verificacaoUsuarioLogado() {
             'Login/Cadastro <i class="bi bi-person-circle"></i>';
         const dropdownBtn = document.querySelector('.dropdown-toggle');
     }
+}
+
+//PARTE DO CADASTRO EH AQUIIIIIIIIIIIIIII
+
+
+async function cadastrar(nome, email, senha, confirmacaoSenha) {
+
+    const url = 'https://ppw-1-tads.vercel.app/api/register';
+
+    const infoCadastro = {
+        nome: nome,
+        email: email,
+        senha: senha,
+        confirmacaoSenha: confirmacaoSenha
+    };
+
+    try {
+            const resposta = await fetch(url , {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(infoCadastro)
+        });
+
+        const retornoAPI = await resposta.json();
+
+        if ((resposta.ok)) {
+            return {
+                success: retornoAPI.success,
+                message: retornoAPI.mensagem //PQ SIRLON :(((((((((((((
+            };
+        } else {
+            return {
+                success: retornoAPI.success,
+                message: retornoAPI.erro //PQ SIRLON :(((((((((((((
+            };
+        }
+    } catch (error) {
+        console.error("Falha na requisição:", error);
+        return {
+            success: false,
+            message: 'Erro Inesperado'
+        };
+    }
+}
+
+
+
+//PARTE DOS PRODUTOS EH A PARTIIR DAQUIIIIIIIIIIIIIIIIIIIIIIIIIII
+
+
+async function carregarProdutos() {
+
+    const url = 'https://ppw-1-tads.vercel.app/api/products';
+
+    try {
+        const resposta = await fetch(url, {
+            method: 'GET',
+            headers: { "Content-Type": "application/json" }
+
+        });
+
+        const retornoAPI = await resposta.json();
+
+        if (retornoAPI.success) {
+            mostrarProdutos(retornoAPI.products);
+        } else {
+            alert("Nao foi possivel carregar os produtos")
+        }
+    } catch (error) {
+        alert("falha inesperada")
+    }
+
+}
+
+
+function mostrarProdutos(produtos) {
+
+    const divProdutos = document.getElementById('grade-produto');
+
+    if (!divProdutos) return;
+
+    divProdutos.innerHTML = ''
+
+    produtos.forEach(produto => {
+
+        const precoFormatado = parseFloat(produto.price).toFixed(2);
+
+        const itemProduto = `
+         <div class="cards-produto-alinhamento mb-6">
+                    <div class="card" style="width: 18rem;">
+                        <img src="${produto.image}" class="card_img">
+                        <div class="card-body">
+                            <h3 class="card-title">${produto.name}</h3>
+                            <p class="card-text">${produto.description}</p>
+                            <p class="card-text">R$ ${precoFormatado}</p>
+
+        <!-- FACILIDADE PRO CARRINHO AQUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+                            <input type="hidden" class="produto-id" value="${produto.id}">
+                            <input type="hidden" class="produto-nome" value="${produto.name}">
+                            <input type="hidden" class="produto-preco" value="${precoFormatado}">
+                            <input type="hidden" class="produto-imagem" value="${produto.image}">
+                            <input type="hidden" class="produto-descricao" value="${produto.description}">
+
+
+
+
+                            <button type="button" class="btn-footer"
+                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Adicionar ao carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>`;
+
+        divProdutos.innerHTML += itemProduto;
+
+    });
 }

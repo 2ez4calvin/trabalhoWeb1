@@ -16,7 +16,7 @@
 </head>
 
 <body>
- <header>
+     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="https://www.ifg.edu.br" target="_blank">
@@ -32,16 +32,16 @@
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início</a>
+                            <a class="nav-link" href="index.html">Início <i class="bi bi-house"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="produtos.html">Produtos</a>
+                            <a class="nav-link" href="produtos.html">Produtos <i class="bi bi-bookshelf"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="carrinho.html">Carrinho</a>
+                            <a class="nav-link" href="carrinho.html">Carrinho <i class="bi bi-cart"></i></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contato.html">Contato</a>
+                            <a class="nav-link" href="contato.html">Contato <i class="bi bi-telephone"></i></a>
                         </li>
 
 
@@ -50,13 +50,13 @@
                                 id="boasVindas">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item active" aria-current="page" href="login.html" id="btnLogin">Entrar</a></li>
-                                <li><a class="dropdown-item" href="novo_usuario.html" id="btnCadastrar">Criar conta</a>
+                                <li><a class="dropdown-item active" aria-current="page" href="login.html" id="btnLogin">Entrar <i class="bi bi-box-arrow-left"></i></a></li>
+                                <li><a class="dropdown-item" href="novo_usuario.html" id="btnCadastrar">Criar conta <i class="bi bi-plus-lg"></i></a>
                                 </li>
-                                <li><a class="dropdown-item" href="meus_dados.html" id="btnDados">Meus Dados</a></li>
-                                <li><a class="dropdown-item" href="meus_pedidos.html" id="btnPedidos">Meus Pedidos</a>
+                                <li><a class="dropdown-item" href="meus_dados.html" id="btnDados">Meus Dados <i class="bi bi-person-lines-fill"></i></a></li>
+                                <li><a class="dropdown-item" href="meus_pedidos.html" id="btnPedidos">Meus Pedidos <i class="bi bi-bag-fill"></i></a>
                                 </li>
-                                <li><a class="dropdown-item text-danger" href="#" id="btnLogout">Sair</a></li>
+                                <li><a class="dropdown-item" href="index.html" id="btnLogout">Sair <i class="bi bi-box-arrow-right"></i></a></li>
                             </ul>
                         </li>
 
@@ -66,12 +66,13 @@
         </nav>
     </header>
 
+
     <main>
         <h2 class="mb-3 text-center titulo-background-verde-central">Realizar login:</h2>
-        <form method="post" id="formulario-cadastro" class="needs-validation formulario-cadastro" novalidate>
+        <form method="post" id="formulario-login" class="needs-validation formulario-cadastro" novalidate>
             <div class="mb-3">
                 <label for="email-cadastro" class="form-label">E-mail:</label>
-                <input type="email" class="form-control" id="email-cadastro" placeholder="exemplo@mail.com" required>
+                <input type="email" class="form-control" id="email-login" placeholder="exemplo@mail.com" required>
                 <div class="invalid-feedback">
                     Por favor, insira um e-mail válido.
                 </div>
@@ -79,7 +80,7 @@
 
             <div class="mb-3">
                 <label for="senha-cadastro" class="form-label">Senha:</label>
-                <input type="password" class="form-control" id="senha-cadastro" required>
+                <input type="password" class="form-control" id="senha-login" required>
                 <div class="invalid-feedback">
                     Por favor, insira uma senha!
                 </div>

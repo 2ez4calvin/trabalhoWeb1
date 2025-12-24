@@ -415,7 +415,7 @@ div p {
 }
 
 .card {
-    width: 200px;
+    width: 400px;
     font-size: 1.3rem;
     margin-bottom: 5px;
     padding: 1px;
@@ -427,7 +427,7 @@ div p {
 .card_img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     /* corta as bordas para não distorcer */
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -440,12 +440,7 @@ div p {
     margin-bottom: 30px;
 }
 
-/*.grade-carrinho {
-    margin: 100px;
-    color: var(--cor-letra-principal);
-    text-align: left;
-}
-*/
+
 .text-carrinho {
     color: var(--cor-principal);
     text-align: center;
@@ -477,5 +472,30 @@ div p {
 
 .titulo-pedido {
     color: var(--cor-principal) !important;
+
+}
+
+
+.cards-produto{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-wrap: wrap;
+}
+
+.cards-produto .row {
+    display: flex;
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.cards-produto-alinhamento {
+    flex: 0 0 20%; /* Cada card ocupa aproximadamente 30% da largura */
+    max-width: 20%;
+    margin: 0 1.5%; /* Espaçamento entre os cards */
+    display: flex;
+    justify-content: center;
 
 }
