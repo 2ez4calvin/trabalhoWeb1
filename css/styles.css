@@ -12,6 +12,7 @@
 
 
 
+
 .navbar {
     background-color: var(--cor-principal);
 }
@@ -166,6 +167,15 @@ h1 {
     border-radius: 10px;
 }
 
+.titulo-background-verde-central-v2 {
+    color: red;
+    max-width: 50%;
+    min-width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
 .centralizar-cards {
     display: flex;
     justify-content: center;
@@ -202,35 +212,6 @@ h1 {
     padding-left: 2rem;
     padding-right: 2rem;
 }
-
-.menu-lateral {
-    position: fixed;
-    top: 117px;
-    left: 0;
-    height: calc(100vh - 117px); /* Corrige a altura */
-    width: 250px;
-    background-color: var(--cor-botao-hover);
-    overflow-y: auto;
-}
-
-.menu-lateral .nav-link {
-    font-size: 1.2rem;
-    color: var(--cor-letra-principal);
-}
-
-.menu-lateral .nav-link:hover {
-    transition: 100ms;
-    font-size: 1.3rem;
-    color: var(--cor-letra-principal);
-    background-color: var(--cor-destaque);
-}
-
-.menu-lateral .nav-link.active {
-    background-color: var(--cor-principal) !important;
-    color: var(--cor-letra-destaque) !important;
-    font-weight: bold;
-}
-
 
 .botao {
     /*Classe para definir estilo do botao index */
@@ -507,7 +488,12 @@ div p {
     border-radius: 1rem;
     box-sizing: border-box;
     overflow-y: auto; /* Adiciona scroll se necessário */
+     align-items: center; /* Centraliza horizontalmente */
+    justify-content: flex-start; /* Alinha no topo */
+    min-height: 300px; /* Altura mínima para centralizar verticalmente */
 }
+
+
 
 /* === Menu lateral === */
 .sidebar {
@@ -523,7 +509,6 @@ div p {
 .especifico-sidebar{
     display: flex;
     flex-wrap: nowrap;
-    margin-top: 1rem;
 }
 
 .sidebar ul {
@@ -557,4 +542,52 @@ div p {
     background-color: var(--cor-destaque);
     color: var(--cor-letra-destaque);
     font-weight: bold;
+}
+
+/*PARTE DO ENDERECO*/
+
+
+#avisoSemEnderecos {
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+#listaEnderecos {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.card-endereco {
+    margin-top: 1%;
+    margin-left: 5vh;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--cor-principal);
+    box-sizing: border-box;
+    display: inline-table;
+    flex-direction: row;
+    height: 100%;
+    width: 40%;
+}
+
+.botao-perigo{
+    background-color: red !important;
+    color: var(--cor-letra-principal) !important;
+    border-color: red !important;
+}
+
+.card-adicionar-endereco {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 2px dashed var(--cor-principal);
+    background-color: rgba(29, 158, 51, 0.05);
+    text-align: center;
 }

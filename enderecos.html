@@ -71,6 +71,7 @@
         </nav>
     </header>
 
+
     <main class="especifico-sidebar">
 
         <!--MENU LATERAL AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
@@ -82,38 +83,75 @@
             </ul>
         </aside>
         <div class="content">
-            <div class="row centralizar-cards">
-                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                    <div class="card-header">
-                        Endereço 1
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Rua 15 Quadra 2 N° 150</p>
-                        <p>CEP: 15959-124</p>
-                        <p>Formosa - GO</p>
-                        <a href="#" class="btn btn-primary">Excluir Endereço</a>
-                    </div>
-                </div>
-                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                    <div class="card-header">
-                        Endereço 2
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">Rua 2 Quadra 10 N° 132</p>
-                        <p>CEP: 15122-100</p>
-                        <p>Formosa - GO</p>
-                        <a href="#" class="btn btn-primary">Excluir Endereço</a>
-                    </div>
-                </div>
 
-                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                    <div class="card-body">
-                        <p class="card-text">Cadastrar novo Endereço</p>
-                        <a href="#" class="btn btn-primary">Cadastrar</a>
+            <div id="avisoSemEnderecos" class="text-center mb-4">
+                <h2 class="titulo-background-verde-central-v2"></h2>
+            </div>
+            <div class="card col-sm-2 mb-2 mb-sm-0 text-center card-adicionar-endereco">
+                <div class="card-body ">
+                    <p class="card-text">Adicionar Novo Endereço</p>
+                    <button class="btn" data-bs-toggle="modal" data-bs-target="#modalCadastro">
+                        Cadastrar endereço <i class="bi bi-plus-circle"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="listaEnderecos" class="mt-4" style="display: none;">
+                <!-- TUDO NO JS AGORAAAAAA -->
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalCadastro" tabindex="-1" aria-labelledby="modalCadastroLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="modalCadastroLabel">Cadastrar Novo Endereço</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="formCadastroEndereco">
+                                <div class="mb-3">
+                                    <label for="rua" class="form-label">Rua</label>
+                                    <input type="text" class="form-control" id="rua" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira uma rua válida.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="numero" class="form-label">Número</label>
+                                    <input type="text" class="form-control" id="numero" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira uma número válido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cep" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="cep" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira um CEP válido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="cidadeEstado" class="form-label">Cidade/Estado</label>
+                                    <div class="invalid-feedback">
+                                        Por favor, insira uma cidade válida.
+                                    </div>
+                                    <input type="text" class="form-control" id="cidadeEstado" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger botao-perigo" data-bs-dismiss="modal"
+                                id="botaoPerigo">Cancelar <i class="bi bi-x"></i></button>
+                            <button type="button" class="btn btn-primary" id="btnCadastrarEndereco">Cadastrar <i
+                                    class="bi bi-check"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+
     </main>
     <footer>
         <div id="footer_background">

@@ -116,11 +116,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 alert(resultado.message);
                 localStorage.setItem('usuarioEmail', email);
                 localStorage.setItem('nomeLogado', nome);
-                 document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + nome + ' ';
+                document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + nome + ' ';
             } else {
                 alert(resultado.message);
             }
         });
+    }
+
+    // Listener cadastro
+
+    if (window.location.pathname.includes('enderecos.html')) {
+        carregarEnderecos();
+
+
+        const btnCadastrarEndereco = document.getElementById('btnCadastrarEndereco');
+        if (btnCadastrarEndereco) {
+            btnCadastrarEndereco.addEventListener('click', function () {
+                const rua = document.getElementById('rua').value;
+                const numero = document.getElementById('numero').value;
+                const cep = document.getElementById('cep').value;
+                const cidadeEstado = document.getElementById('cidadeEstado').value;
+
+                // Validação básica
+                if (!rua || !numero || !cep || !cidadeEstado) {
+                    alert('Por favor, preencha todos os campos.');
+                    return;
+                }
+                cadastrarEndereco(rua, numero, cep, cidadeEstado);
+            });
+        }
     }
 
 });
@@ -249,7 +273,7 @@ async function cadastrar(nome, email, senha, confirmacaoSenha) {
 //PARTE DOS PRODUTOS EH A PARTIIR DAQUIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 
-async function Produtos() {
+async function carregarProdutos() {
 
     const url = 'https://ppw-1-tads.vercel.app/api/products';
 
@@ -361,3 +385,80 @@ async function atualizarDadosPessoais(nome, email) {
         };
     }
 }
+
+
+//Parte dos enderecos
+
+function carregarEnderecos() {
+    const enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
+    const listaEnderecos = document.getElementById('listaEnderecos');
+    const avisoSemEnderecos = document.getElementById('avisoSemEnderecos');
+
+    if (enderecos.length === 0) {
+        avisoSemEnderecos.innerHTML ='<h2 class="titulo-background-verde-central-v2">Não ha endereços cadastrados!</h2>';
+        listaEnderecos.style.display = 'none';
+        listaEnderecos.innerHTML = '';
+    } else {
+        avisoSemEnderecos.style.display = 'none';
+        listaEnderecos.style.display = 'block';
+
+
+        listaEnderecos.innerHTML = '';
+
+        enderecos.forEach((endereco, index) => {
+            const cardEndereco = document.createElement('div');
+            cardEndereco.className = 'card-endereco';
+            cardEndereco.innerHTML = `
+                <h5>Endereço ${index + 1}</h5>
+                <p><strong>Rua:</strong> ${endereco.rua}</p>
+                <p><strong>Número:</strong> ${endereco.numero}</p>
+                <p><strong>CEP:</strong> ${endereco.cep}</p>
+                <p><strong>Cidade/Estado:</strong> ${endereco.cidadeEstado}</p>
+                <input type="hidden" class="endereco-id" value="${index}">
+                <button class="btn btn-danger btn-sm btn-excluir-endereco">Excluir Endereço</button>
+            `;
+            listaEnderecos.appendChild(cardEndereco);
+        });
+
+        document.querySelectorAll('.btn-excluir-endereco').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const card = this.closest('.card-endereco');
+                const idInput = card.querySelector('.endereco-id');
+                const enderecoId = parseInt(idInput.value);
+                excluirEndereco(enderecoId);
+            });
+        });
+    }
+}
+
+function cadastrarEndereco(rua, numero, cep, cidadeEstado) {
+    const enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
+
+    const novoEndereco = {
+        rua: rua,
+        numero: numero,
+        cep: cep,
+        cidadeEstado: cidadeEstado
+    };
+
+    enderecos.push(novoEndereco);
+    localStorage.setItem('enderecos', JSON.stringify(enderecos));
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalCadastro'));
+    modal.hide();
+
+    document.getElementById('formCadastroEndereco').reset();
+    location.reload();
+}
+
+function excluirEndereco(id) {
+    if (confirm('Tem certeza que deseja excluir este endereço?')) {
+        
+        const enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
+
+        enderecos.splice(id, 1);
+        localStorage.setItem('enderecos', JSON.stringify(enderecos));
+        location.reload();
+    }
+}
+
+
