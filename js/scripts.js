@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (resultado.message === "Usuário registrado com sucesso.") {
                 alert(resultado.message);
                 window.location.href = 'index.html'
-            } else if(resultado.message === "E-mail inválido."){ 
+            } else if (resultado.message === "E-mail inválido.") {
                 alert(resultado.message);
                 document.getElementById('email-cadastro').value = '';
                 document.getElementById('email-cadastro').focus;
-            }else{
+            } else {
                 alert(resultado.message);
                 document.getElementById('senha-cadastro').value = '';
                 document.getElementById('senha-cadastro').focus;
@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 localStorage.setItem('usuarioLogado', 'true')
                 localStorage.setItem('usuarioEmail', email)
+                localStorage.setItem('nomeLogado', 'Celio')
 
                 window.location.href = 'index.html'
             } else {
@@ -94,6 +95,34 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#produtos-container')) {
         carregarProdutos();
     }
+
+    const formDadosPessoais = document.getElementById('form-dados-pessoais');
+
+    if (formDadosPessoais) {
+        formDadosPessoais.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!formDadosPessoais.checkValidity()) {
+                formDadosPessoais.classList.add('was-validated');
+                return;
+            }
+
+            const nome = document.getElementById('nomeDadosPessoais').value;
+            const email = document.getElementById('emailDadosPessoais').value;
+
+            const resultado = await atualizarDadosPessoais(nome, email);
+
+            if (resultado.success) {
+                alert(resultado.message);
+                localStorage.setItem('usuarioEmail', email);
+                localStorage.setItem('nomeLogado', nome);
+                 document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + nome + ' ';
+            } else {
+                alert(resultado.message);
+            }
+        });
+    }
+
 });
 
 
@@ -141,6 +170,7 @@ async function login(email, senha) {
 function logout() {
     localStorage.removeItem('usuarioEmail');
     localStorage.removeItem('usuarioLogado');
+    localStorage.removeItem('nomeLogado');
 
     verificacaoUsuarioLogado();
 
@@ -157,7 +187,7 @@ function verificacaoUsuarioLogado() {
         document.getElementById("btnDados").style.display = 'block';
         document.getElementById("btnPedidos").style.display = 'block';
         document.getElementById("btnLogout").style.display = 'block';
-        document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + localStorage.getItem('usuarioEmail') + ' ';
+        document.getElementById("boasVindas").innerHTML = 'Bem vindo ' + localStorage.getItem('nomeLogado') + ' ';
     } else {
         console.log('Usuário NÃO logado');
         document.getElementById("btnCadastrar").style.display = 'block';
@@ -186,7 +216,7 @@ async function cadastrar(nome, email, senha, confirmacaoSenha) {
     };
 
     try {
-            const resposta = await fetch(url , {
+        const resposta = await fetch(url, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(infoCadastro)
@@ -219,7 +249,7 @@ async function cadastrar(nome, email, senha, confirmacaoSenha) {
 //PARTE DOS PRODUTOS EH A PARTIIR DAQUIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 
-async function carregarProdutos() {
+async function Produtos() {
 
     const url = 'https://ppw-1-tads.vercel.app/api/products';
 
@@ -287,4 +317,47 @@ function mostrarProdutos(produtos) {
         divProdutos.innerHTML += itemProduto;
 
     });
+}
+
+
+//PARTE DE ATUALIZACAO DE DADOS
+
+async function atualizarDadosPessoais(nome, email) {
+    const url = 'https://ppw-1-tads.vercel.app/api/user';
+
+    const dadosAtualizacao = {
+        nome: nome,
+        email: email
+    };
+
+    try {
+        const resposta = await fetch(url, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(dadosAtualizacao)
+        });
+
+        const retornoAPI = await resposta.json();
+        console.log(retornoAPI);
+
+        if (resposta.ok) {
+            return {
+                success: true,
+                message: retornoAPI.mensagem
+            };
+        } else {
+            return {
+                success: false,
+                message: retornoAPI.mensagem
+            };
+        }
+    } catch (error) {
+        console.error("Falha na requisição:", error);
+        return {
+            success: false,
+            message: 'Erro de conexão'
+        };
+    }
 }

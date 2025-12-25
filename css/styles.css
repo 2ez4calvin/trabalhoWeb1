@@ -477,7 +477,6 @@ div p {
 
 
 .cards-produto{
-
     display: flex;
     justify-content: center;
     align-items: center;    
@@ -497,5 +496,65 @@ div p {
     margin: 0 1.5%; /* Espaçamento entre os cards */
     display: flex;
     justify-content: center;
+}
 
+
+/* === Área de conteúdo === */
+.content {
+    flex: 1;
+    background-color: var(--cor-claro-fraco);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto; /* Adiciona scroll se necessário */
+}
+
+/* === Menu lateral === */
+.sidebar {
+    flex: 0 0 250px; 
+    background: var(--cor-principal);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.especifico-sidebar{
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.sidebar li {
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--cor-letra-principal);
+    border-radius: 0.25rem;
+}
+
+.sidebar li a:hover {
+    background-color: var(--cor-botao-hover);
+    color: var(--cor-letra-destaque);
+    transform: translateX(5px);
+    transform: scale(1.05);
+}
+
+.sidebar li a.active {
+    background-color: var(--cor-destaque);
+    color: var(--cor-letra-destaque);
+    font-weight: bold;
 }

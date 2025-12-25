@@ -50,13 +50,18 @@
                                 id="boasVindas">
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="login.html" id="btnLogin">Entrar <i class="bi bi-box-arrow-left"></i></a></li>
-                                <li><a class="dropdown-item" href="novo_usuario.html" id="btnCadastrar">Criar conta <i class="bi bi-plus-lg"></i></a>
+                                <li><a class="dropdown-item" href="login.html" id="btnLogin">Entrar <i
+                                            class="bi bi-box-arrow-left"></i></a></li>
+                                <li><a class="dropdown-item" href="novo_usuario.html" id="btnCadastrar">Criar conta <i
+                                            class="bi bi-plus-lg"></i></a>
                                 </li>
-                                <li><a class="dropdown-item active" aria-current="page" href="meus_dados.html" id="btnDados">Meus Dados <i class="bi bi-person-lines-fill"></i></a></li>
-                                <li><a class="dropdown-item" href="meus_pedidos.html" id="btnPedidos">Meus Pedidos <i class="bi bi-bag-fill"></i></a>
+                                <li><a class="dropdown-item active" aria-current="page" href="meus_dados.html"
+                                        id="btnDados">Meus Dados <i class="bi bi-person-lines-fill"></i></a></li>
+                                <li><a class="dropdown-item" href="meus_pedidos.html" id="btnPedidos">Meus Pedidos <i
+                                            class="bi bi-bag-fill"></i></a>
                                 </li>
-                                <li><a class="dropdown-item" href="index.html" id="btnLogout">Sair <i class="bi bi-box-arrow-right"></i></a></li>
+                                <li><a class="dropdown-item" href="index.html" id="btnLogout">Sair <i
+                                            class="bi bi-box-arrow-right"></i></a></li>
                             </ul>
                         </li>
 
@@ -66,50 +71,48 @@
         </nav>
     </header>
 
-    <main>
+    <main class="especifico-sidebar">
 
         <!--MENU LATERAL AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-        <div class="d-flex flex-column flex-shrink-0 p-3 menu-lateral">
-            <ul class="nav flex-column mb-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="dados_pessoais.html">Dados Pessoais</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="enderecos.html">Meus Endereços</a>
-                </li>
+        <aside class="sidebar">
+
+            <ul>
+                <li><a class="nav-link" href="dados_pessoais.html">Dados Pessoais</a></li>
+                <li><a class="nav-link active" aria-current="page" href="enderecos.html">Meus Endereços</a></li>
             </ul>
-        </div>
-        <div class="row centralizar-cards">
-            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                <div class="card-header">
-                    Endereço 1
+        </aside>
+        <div class="content">
+            <div class="row centralizar-cards">
+                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                    <div class="card-header">
+                        Endereço 1
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Rua 15 Quadra 2 N° 150</p>
+                        <p>CEP: 15959-124</p>
+                        <p>Formosa - GO</p>
+                        <a href="#" class="btn btn-primary">Excluir Endereço</a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-text">Rua 15 Quadra 2 N° 150</p>
-                    <p>CEP: 15959-124</p>
-                    <p>Formosa - GO</p>
-                    <a href="#" class="btn btn-primary">Excluir Endereço</a>
+                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                    <div class="card-header">
+                        Endereço 2
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Rua 2 Quadra 10 N° 132</p>
+                        <p>CEP: 15122-100</p>
+                        <p>Formosa - GO</p>
+                        <a href="#" class="btn btn-primary">Excluir Endereço</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                <div class="card-header">
-                    Endereço 2
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Rua 2 Quadra 10 N° 132</p>
-                    <p>CEP: 15122-100</p>
-                    <p>Formosa - GO</p>
-                    <a href="#" class="btn btn-primary">Excluir Endereço</a>
-                </div>
-            </div>
 
-            <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
-                <div class="card-body">
-                    <p class="card-text">Cadastrar novo Endereço</p>
-                    <a href="#" class="btn btn-primary">Cadastrar</a>
+                <div class="card col-sm-2 mb-2 mb-sm-0 text-center">
+                    <div class="card-body">
+                        <p class="card-text">Cadastrar novo Endereço</p>
+                        <a href="#" class="btn btn-primary">Cadastrar</a>
+                    </div>
                 </div>
             </div>
-
         </div>
     </main>
     <footer>
