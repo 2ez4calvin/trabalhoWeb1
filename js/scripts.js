@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    verificacaoUsuarioLogado();
+
     const formsLogin = document.getElementById('formulario-login')
     const formsCadastro = document.getElementById('formulario-cadastro')
 
@@ -49,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!formsLogin.checkValidity()) {
                 formsLogin.classList.add('was-validated');
                 return;
-            }
+            } //POR ALGUM MOTIVO O LOGIN TA INDO SEM A VERIFICACAO DE EMAIL DA API, OQ SERAAAAAAAAAAAAAA
+
+            
 
             const email = document.getElementById('email-login').value;
             const senha = document.getElementById('senha-login').value;
@@ -77,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     }
-    verificacaoUsuarioLogado();
+    
 
     //listener do logout
 
@@ -123,25 +127,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Listener cadastro
+    // Listener Enderecos
 
     if (window.location.pathname.includes('enderecos.html')) {
         carregarEnderecos();
 
 
-        const btnCadastrarEndereco = document.getElementById('btnCadastrarEndereco');
-        if (btnCadastrarEndereco) {
-            btnCadastrarEndereco.addEventListener('click', function () {
+
+        const formCadastroEndereco = document.getElementById('formCadastroEndereco');
+
+        if (btnCadastrarEndereco && formCadastroEndereco) {
+            btnCadastrarEndereco.addEventListener('click', function (event) {
+                event.preventDefault();
+                if (!formCadastroEndereco.checkValidity()) {
+                    formCadastroEndereco.classList.add('was-validated');
+                    return;
+                }
+
                 const rua = document.getElementById('rua').value;
                 const numero = document.getElementById('numero').value;
                 const cep = document.getElementById('cep').value;
                 const cidadeEstado = document.getElementById('cidadeEstado').value;
 
-                // Validação básica
-                if (!rua || !numero || !cep || !cidadeEstado) {
-                    alert('Por favor, preencha todos os campos.');
-                    return;
-                }
                 cadastrarEndereco(rua, numero, cep, cidadeEstado);
             });
         }
@@ -395,7 +402,7 @@ function carregarEnderecos() {
     const avisoSemEnderecos = document.getElementById('avisoSemEnderecos');
 
     if (enderecos.length === 0) {
-        avisoSemEnderecos.innerHTML ='<h2 class="titulo-background-verde-central-v2">Não ha endereços cadastrados!</h2>';
+        avisoSemEnderecos.innerHTML = '<h2 class="titulo-background-verde-central-v2">Não ha endereços cadastrados!</h2>';
         listaEnderecos.style.display = 'none';
         listaEnderecos.innerHTML = '';
     } else {
@@ -452,7 +459,7 @@ function cadastrarEndereco(rua, numero, cep, cidadeEstado) {
 
 function excluirEndereco(id) {
     if (confirm('Tem certeza que deseja excluir este endereço?')) {
-        
+
         const enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
 
         enderecos.splice(id, 1);
