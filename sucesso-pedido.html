@@ -66,14 +66,26 @@
         </nav>
     </header>
 
-    <main>
-        <div id="background_sucesso">
-            <h2 class="color_h2">Compra finalizada com sucesso!</h2>
-            <p class="margem-text-mgs">Obrigado por comprar conosco.</p>
-            <a href="index.html" class="botao-voltar"> Voltar para Início</a>
-            <i class="fa-solid fa-thumbs-up color_h2 i"></i>
+<main class="container d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+    <div class="card shadow-lg border-0 animacao-sucesso" style="max-width: 600px; border-radius: 25px; overflow: hidden;">
+        <div class="card-body p-5 text-center">
+            
+            <div class="mb-4 pulse-icon">
+                <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+            </div>
+
+            <h2 class="fw-bold text-success mb-3">Compra Finalizada!</h2>
+            <p class="lead text-muted mb-4">Obrigado por comprar conosco. Seu pedido foi registrado com sucesso na <b>Lojinha Cabulosa</b>.</p>
+            
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                <a href="index.html" class="btn btn-outline-secondary btn-lg rounded-pill px-4">Voltar ao Início</a>
+                <a href="meus_pedidos.html" class="btn btn-primary btn-lg rounded-pill px-4 shadow">Meus Pedidos</a>
+            </div>
+            
         </div>
-    </main>
+    </div>
+</main>
+
     <footer>
         <div id="footer_background">
             <!-- Bloco com nome e descrição -->

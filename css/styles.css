@@ -429,13 +429,13 @@ div p {
 
 /*estilo dos botoes de aumentar e diminuir quantidade*/
 .btn-outline-dark {
-    color: var(--cor-principal) !important;
+   
     border-color: var(--cor-principal) !important;
 }
 
 .btn-outline-dark:hover {
     background-color: var(--cor-botao-hover) !important;
-    color: white;
+  
 }
 
 /*pra alinhar o texto abaixo dos botoes de aumentar e diminuir quantidade*/
