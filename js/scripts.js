@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             } //POR ALGUM MOTIVO O LOGIN TA INDO SEM A VERIFICACAO DE EMAIL DA API, OQ SERAAAAAAAAAAAAAA
 
-            
+
 
             const email = document.getElementById('email-login').value;
             const senha = document.getElementById('senha-login').value;
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     }
-    
+
 
     //listener do logout
 
@@ -280,76 +280,287 @@ async function cadastrar(nome, email, senha, confirmacaoSenha) {
 //PARTE DOS PRODUTOS EH A PARTIIR DAQUIIIIIIIIIIIIIIIIIIIIIIIIIII
 
 
+// FUNÇÃO 1: Busca os produtos na API e chama a função de mostrar
 async function carregarProdutos() {
-
     const url = 'https://ppw-1-tads.vercel.app/api/products';
 
     try {
-        const resposta = await fetch(url, {
-            method: 'GET',
-            headers: { "Content-Type": "application/json" }
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
 
-        });
-
-        const retornoAPI = await resposta.json();
-
-        if (retornoAPI.success) {
-            mostrarProdutos(retornoAPI.products);
-        } else {
-            alert("Nao foi possivel carregar os produtos")
+        // Se a API deu certo, mandamos os produtos para a função de mostrar
+        if (dados.success) {
+            mostrarProdutos(dados.products);
         }
-    } catch (error) {
-        alert("falha inesperada")
+    } catch (erro) {
+        console.error("Erro ao carregar produtos:", erro);
     }
-
 }
 
+// FUNÇÃO 2: Desenha os cards dos produtos na tela
+function mostrarProdutos(listaDeProdutos) {
+    const grade = document.getElementById('grade-produto');
+    if (!grade) return;
+    
+    grade.innerHTML = ''; 
 
-function mostrarProdutos(produtos) {
-
-    const divProdutos = document.getElementById('grade-produto');
-
-    if (!divProdutos) return;
-
-    divProdutos.innerHTML = ''
-
-    produtos.forEach(produto => {
-
-        const precoFormatado = parseFloat(produto.price).toFixed(2);
-
-        const itemProduto = `
-         <div class="cards-produto-alinhamento mb-6">
-                    <div class="card" style="width: 18rem;">
-                        <img src="${produto.image}" class="card_img">
-                        <div class="card-body">
-                            <h3 class="card-title">${produto.name}</h3>
-                            <p class="card-text">${produto.description}</p>
-                            <p class="card-text">R$ ${precoFormatado}</p>
-
-        <!-- FACILIDADE PRO CARRINHO AQUI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-
-                            <input type="hidden" class="produto-id" value="${produto.id}">
-                            <input type="hidden" class="produto-nome" value="${produto.name}">
-                            <input type="hidden" class="produto-preco" value="${precoFormatado}">
-                            <input type="hidden" class="produto-imagem" value="${produto.image}">
-                            <input type="hidden" class="produto-descricao" value="${produto.description}">
-
-
-
-
-                            <button type="button" class="btn-footer"
-                                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+    listaDeProdutos.forEach(produto => {
+        // Criamos apenas a coluna. O Bootstrap cuida do resto.
+        const itemCol = `
+            <div class="col d-flex justify-content-center"> 
+                <div class="card h-100 shadow-sm" style="width: 18rem;">
+                    <img src="${produto.image}" class="card-img-top p-3" style="height: 180px; object-fit: contain;" alt="${produto.name}">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h5 class="card-title">${produto.name}</h5>
+                        <p class="card-text small text-muted">${produto.description}</p>
+                        <div class="mt-auto">
+                            <p class="card-text"><strong>R$ ${produto.price.toFixed(2)}</strong></p>
+                            <button class="btn btn-primary w-100" onclick="adicionarAoCarrinho('${produto.id}', '${produto.name}', ${produto.price}, '${produto.image}')">
                                 Adicionar ao carrinho
                             </button>
                         </div>
                     </div>
-                </div>`;
+                </div>
+            </div>
+        `;
+        grade.innerHTML += itemCol;
+    });
+}
+// FUNÇÃO 3: Salva o produto no "banco de dados" do navegador (localStorage)
+function adicionarAoCarrinho(id, nome, preco, imagem) {
+    // 1. Pega o que já tem no carrinho ou cria um carrinho vazio []
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        divProdutos.innerHTML += itemProduto;
+    // 2. Verifica se o produto já está lá dentro
+    const produtoExiste = carrinho.find(item => item.id === id);
 
+    if (produtoExiste) {
+        produtoExiste.quantidade += 1; // Se existe, só aumenta a quantidade
+    } else {
+        // Se não existe, adiciona o novo produto
+        carrinho.push({ id, nome, preco, imagem, quantidade: 1 });
+    }
+
+    // 3. Salva de volta no navegador
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    alert(nome + " foi adicionado ao carrinho!");
+}
+
+// Inicia tudo assim que a página abrir
+document.addEventListener('DOMContentLoaded', carregarProdutos);
+//final item 3
+
+// item 4 - Seleciona o campo de pesquisa que adicionamos no HTML
+const inputBusca = document.getElementById('campo-busca');
+
+if (inputBusca) {
+    inputBusca.addEventListener('input', async (e) => {
+        const termo = e.target.value.toLowerCase();
+        const url = 'https://ppw-1-tads.vercel.app/api/products';
+
+        try {
+            const resposta = await fetch(url);
+            const dados = await resposta.json();
+
+            if (dados.success) {
+                // ITEM 4 DO PDF: Filtrando os produtos pelo termo digitado
+                const filtrados = dados.products.filter(produto => 
+                    produto.name.toLowerCase().includes(termo) || 
+                    produto.description.toLowerCase().includes(termo)
+                );
+
+                // Reutiliza a função que desenha os cards na tela
+                mostrarProdutos(filtrados);
+            }
+        } catch (erro) {
+            console.error("Erro ao filtrar produtos:", erro);
+        }
+    });
+}//final item 4
+
+// ITEM 7.a: Gerar a lista a partir do localStorage
+function renderizarCarrinho() {
+    const listaHTML = document.getElementById('lista-carrinho');
+    const resumo = document.getElementById('resumo-carrinho');
+    const totalGeralHTML = document.getElementById('valor-total-geral');
+    
+    if (!listaHTML) return;
+
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    listaHTML.innerHTML = ''; 
+    let somaTotal = 0;
+
+    // Se estiver vazio, avisa o usuário
+    if (carrinho.length === 0) {
+        listaHTML.innerHTML = '<li class="list-group-item text-center py-4">Sua sacola está vazia.</li>';
+        if (resumo) resumo.style.display = 'none';
+        return;
+    }
+
+    resumo.style.display = 'block';
+
+    carrinho.forEach((produto) => {
+        const subtotal = produto.preco * produto.quantidade;
+        somaTotal += subtotal;
+
+        // Gerando o item com SEU design e ícones SVG
+        listaHTML.innerHTML += `
+            <li class="list-group-item py-3">
+                <div class="row g-3 align-items-center">
+                    <div class="col-4 col-md-2">
+                        <img src="${produto.imagem}" class="img-thumbnail" alt="${produto.nome}">
+                    </div>
+
+                    <div class="col-8 col-md-6">
+                        <h4><b>${produto.nome}</b></h4>
+                        <small class="text-muted">Produto de alta qualidade</small>
+                        <div class="mt-2 text-primary">Unitário: R$ ${produto.preco.toFixed(2)}</div>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <div class="input-group justify-content-md-end">
+                            <button class="btn btn-outline-dark btn-sm" onclick="alterarQtd('${produto.id}', -1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16"><path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" /></svg>
+                            </button>
+                            
+                            <input type="text" class="form-control text-center bg-light" style="max-width: 60px" value="${produto.quantidade}" readonly>
+                            
+                            <button class="btn btn-outline-dark btn-sm" onclick="alterarQtd('${produto.id}', 1)">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16"><path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" /></svg>
+                            </button>
+                            
+                            <button class="btn btn-danger btn-sm ms-2" onclick="removerItem('${produto.id}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16"><path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        `;
+    });
+
+    totalGeralHTML.innerText = `Valor Total: R$ ${somaTotal.toFixed(2)}`;
+}
+
+// Funções para botões (+, - e Lixeira)
+function alterarQtd(id, delta) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+    const produto = carrinho.find(p => p.id === id);
+    if (produto) {
+        produto.quantidade += delta;
+        if (produto.quantidade <= 0) return removerItem(id);
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        renderizarCarrinho();
+    }
+}
+
+function removerItem(id) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho'));
+    carrinho = carrinho.filter(p => p.id !== id);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    renderizarCarrinho();
+}
+
+// ITEM 7.c: Registrar o pedido e redirecionar
+function finalizarPedido() {
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    if (carrinho.length === 0) return alert("Carrinho vazio!");
+
+    const valorTotal = document.getElementById('valor-total-geral').innerText;
+
+    // Criando o objeto do pedido com os PRODUTOS dentro
+    const novoPedido = {
+        idPedido: Math.floor(Date.now() / 1000),
+        data: new Date().toLocaleDateString(),
+        total: valorTotal,
+        produtos: carrinho // <--- ESSENCIAL: salva os itens aqui
+    };
+
+    let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    pedidos.push(novoPedido);
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+
+    localStorage.removeItem('carrinho');
+    alert("Pedido finalizado!");
+    window.location.href = 'sucesso-pedido.html'; // ou meus_pedidos.html
+}
+// Inicia a lista ao carregar a página
+document.addEventListener('DOMContentLoaded', renderizarCarrinho);
+
+//final item 7
+
+//item 8 - Carregar meus pedidos
+function carregarMeusPedidos() {
+    const container = document.getElementById('lista-historico-pedidos');
+    
+    // 1. Verifica se o container existe na página
+    if (!container) return;
+
+    // 2. Tenta ler os pedidos do LocalStorage
+    const pedidosBrutos = localStorage.getItem('pedidos');
+    const pedidos = pedidosBrutos ? JSON.parse(pedidosBrutos) : [];
+
+    // 3. Se não houver pedidos, mostra mensagem e para aqui
+    if (pedidos.length === 0) {
+        container.innerHTML = '<li class="list-group-item text-center py-5"><h4>Ainda não realizou pedidos.</h4></li>';
+        return;
+    }
+
+    container.innerHTML = ""; // Limpa a lista
+
+    // 4. Desenha cada pedido
+    pedidos.forEach((pedido, index) => {
+        let produtosHTML = "";
+        
+        // Cria a lista de produtos (se eles existirem)
+        if (pedido.produtos) {
+            pedido.produtos.forEach(p => {
+                produtosHTML += `
+                    <div class="row align-items-center border-bottom py-2">
+                        <div class="col-3">
+                            <img src="${p.imagem}" class="img-thumbnail" style="max-height: 50px">
+                        </div>
+                        <div class="col-9">
+                            <h6 class="mb-0">${p.nome}</h6>
+                            <small>Qtd: ${p.quantidade} - R$ ${p.preco.toFixed(2)}</small>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        // 5. Monta o card com o botão de Detalhes
+        const idCollapse = "pedido" + index;
+
+        container.innerHTML += `
+            <li class="list-group-item mb-3 shadow-sm border rounded">
+                <div class="d-flex justify-content-between align-items-center p-2">
+                    <div>
+                        <strong>Pedido #${pedido.idPedido || (index + 1)}</strong><br>
+                        <small class="text-muted">${pedido.data}</small>
+                    </div>
+                    <div class="text-end">
+                        <div class="fw-bold text-success mb-1">${pedido.total}</div>
+                        <button class="btn btn-sm btn-primary" type="button" 
+                                data-bs-toggle="collapse" data-bs-target="#${idCollapse}">
+                            Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <div class="collapse" id="${idCollapse}">
+                    <div class="p-3 bg-light border-top">
+                        ${produtosHTML}
+                    </div>
+                </div>
+            </li>
+        `;
     });
 }
 
+// Garante que a função corre ao abrir a página
+document.addEventListener('DOMContentLoaded', carregarMeusPedidos);
+//final item 8
 
 //PARTE DE ATUALIZACAO DE DADOS
 

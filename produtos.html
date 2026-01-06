@@ -72,11 +72,22 @@
         </nav>
     </header>
 
-    <main>
-        <div id="grade-produto" class="cards-produto">
-            <div class="row justify-content-center">
-                <!-- OS PRODUTOS VAO APARECER TUDO AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII-->
+    <main class="container my-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-6">
+                <div class="input-group shadow-sm">
+                    <span class="input-group-text text-white" style="background-color: #28a745; border-color: #28a745;">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="text" id="campo-busca" class="form-control" style="border-color: #28a745;"
+                        placeholder="O que você está procurando hoje?">
+                </div>
+                <div class="form-text text-center mt-2">Filtre por nome ou descrição das roupas e eletronicos.</div>
             </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center" id="grade-produto">
+            <!-- Os produtos serão inseridos aqui dinamicamente -->
         </div>
     </main>
 
