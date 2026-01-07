@@ -490,77 +490,92 @@ document.addEventListener('DOMContentLoaded', renderizarCarrinho);
 
 //final item 7
 
-//item 8 - Carregar meus pedidos
+
+// ==========================================
+// ITEM 8 - Carregar Lista de Pedidos (Resumo)
+// ==========================================
 function carregarMeusPedidos() {
     const container = document.getElementById('lista-historico-pedidos');
-    
-    // 1. Verifica se o container existe na página
-    if (!container) return;
+    if (!container) return; // Só executa se encontrar o ID na página
 
-    // 2. Tenta ler os pedidos do LocalStorage
-    const pedidosBrutos = localStorage.getItem('pedidos');
-    const pedidos = pedidosBrutos ? JSON.parse(pedidosBrutos) : [];
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
 
-    // 3. Se não houver pedidos, mostra mensagem e para aqui
     if (pedidos.length === 0) {
-        container.innerHTML = '<li class="list-group-item text-center py-5"><h4>Ainda não realizou pedidos.</h4></li>';
+        container.innerHTML = '<li class="list-group-item text-center py-5"><h4>Nenhum pedido realizado.</h4></li>';
         return;
     }
 
-    container.innerHTML = ""; // Limpa a lista
+    container.innerHTML = ""; 
 
-    // 4. Desenha cada pedido
-    pedidos.forEach((pedido, index) => {
-        let produtosHTML = "";
-        
-        // Cria a lista de produtos (se eles existirem)
-        if (pedido.produtos) {
-            pedido.produtos.forEach(p => {
-                produtosHTML += `
-                    <div class="row align-items-center border-bottom py-2">
-                        <div class="col-3">
-                            <img src="${p.imagem}" class="img-thumbnail" style="max-height: 50px">
-                        </div>
-                        <div class="col-9">
-                            <h6 class="mb-0">${p.nome}</h6>
-                            <small>Qtd: ${p.quantidade} - R$ ${p.preco.toFixed(2)}</small>
-                        </div>
-                    </div>`;
-            });
-        }
-
-        // 5. Monta o card com o botão de Detalhes
-        const idCollapse = "pedido" + index;
-
+    pedidos.forEach((pedido) => {
         container.innerHTML += `
             <li class="list-group-item mb-3 shadow-sm border rounded">
                 <div class="d-flex justify-content-between align-items-center p-2">
                     <div>
-                        <strong>Pedido #${pedido.idPedido || (index + 1)}</strong><br>
+                        <strong>Pedido #${pedido.idPedido}</strong><br>
                         <small class="text-muted">${pedido.data}</small>
                     </div>
                     <div class="text-end">
                         <div class="fw-bold text-success mb-1">${pedido.total}</div>
-                        <button class="btn btn-sm btn-primary" type="button" 
-                                data-bs-toggle="collapse" data-bs-target="#${idCollapse}">
-                            Detalhes
-                        </button>
-                    </div>
-                </div>
-
-                <div class="collapse" id="${idCollapse}">
-                    <div class="p-3 bg-light border-top">
-                        ${produtosHTML}
+                        
+                        <a href="detalhe_pedido.html?id=${pedido.idPedido}" class="btn btn-sm btn-primary">
+                            Ver Detalhes
+                        </a>
                     </div>
                 </div>
             </li>
         `;
     });
 }
-
-// Garante que a função corre ao abrir a página
-document.addEventListener('DOMContentLoaded', carregarMeusPedidos);
 //final item 8
+
+// ==========================================
+// ITEM 9 - Carregar Detalhes do Pedido Único
+// ==========================================
+function carregarDetalhesDoPedido() {
+    const container = document.getElementById('detalhe-pedido-unico');
+    if (!container) return; // Só executa se encontrar o ID na página de detalhes
+
+    // 1. Pega o ID da URL (ex: ?id=12345)
+    const urlParams = new URLSearchParams(window.location.search);
+    const idUrl = urlParams.get('id');
+
+    // 2. Busca o pedido correspondente no LocalStorage
+    const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    const pedidoAchei = pedidos.find(p => p.idPedido == idUrl);
+
+    if (pedidoAchei) {
+        // Preenche o Título e o Total da página
+        document.getElementById('titulo-id-pedido').innerText = `Detalhe Pedido #${pedidoAchei.idPedido}`;
+        document.getElementById('total-pedido-unico').innerText = pedidoAchei.total;
+
+        // 3. Desenha a lista de produtos deste pedido
+        container.innerHTML = "";
+        pedidoAchei.produtos.forEach(p => {
+            container.innerHTML += `
+                <li class="list-group-item py-3">
+                    <div class="row align-items-center">
+                        <div class="col-4 col-md-2">
+                            <img src="${p.imagem}" class="img-thumbnail">
+                        </div>
+                        <div class="col-8 col-md-10">
+                            <h4><b>${p.nome}</b></h4>
+                            <h6>Quantidade: ${p.quantidade}</h6>
+                            <h6>Valor Unitário: R$ ${p.preco.toFixed(2)}</h6>
+                        </div>
+                    </div>
+                </li>`;
+        });
+    } else {
+        container.innerHTML = "<h4>Pedido não encontrado.</h4>";
+    }
+}
+//fim item 9
+// Executa as funções quando o HTML terminar de carregar
+document.addEventListener('DOMContentLoaded', () => {
+    carregarMeusPedidos();      // Tenta carregar a lista (Item 8)
+    carregarDetalhesDoPedido(); // Tenta carregar o detalhe (Item 9)
+});
 
 //PARTE DE ATUALIZACAO DE DADOS
 

@@ -66,42 +66,54 @@
         </nav>
     </header>
 
-    <main>
-        <div id="background_sucesso">
-            <h2 class="color_h2">Mensagem enviada com sucesso!</h2>
-            <p class="margem-text-mgs">Obrigado por entrar em contato conosco. Responderemos em breve.</p>
-            <a href="index.html" class="botao-voltar"> Voltar para Início</a>
-            <i class="fa-solid fa-thumbs-up color_h2 i"></i>
-        </div>
-    </main>
-    <footer>
-        <div id="footer_background">
-            <!-- Bloco com nome e descrição -->
-            <div id="footer_info">
-                <h2>Vendinha Cabulosa</h2>
-                <p>Frutas e verduras fresquinhas todos os dias!</p>
+<main class="container d-flex align-items-center justify-content-center" style="min-height: 70vh;">
+    <div class="card shadow-lg border-0 text-center" style="max-width: 500px; border-radius: 25px;">
+        <div class="card-body p-5">
+            
+            <div class="mb-4">
+                <i class="bi bi-envelope-check-fill text-success" style="font-size: 5rem;"></i>
             </div>
 
-            <!-- Lista de atendimento -->
+            <h2 class="fw-bold mb-3" style="color: #2c3e50;">Mensagem Enviada!</h2>
+            <p class="text-muted mb-4">
+                Obrigado por entrar em contato. <br>
+                Recebemos sua mensagem e responderemos o mais breve possível.
+            </p>
+            
+            <div class="d-grid">
+                <a href="index.html" class="btn btn-success btn-lg rounded-pill shadow-sm px-5">
+                    Voltar para o Início
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</main>
+
+ <footer>
+        <div id="footer_background">
+            <div id="footer_info">
+                <h2>Lojinha Cabulosa</h2>
+                <p>Roupas e eletrônicos: o melhor estilo e tecnologia para você!</p>
+            </div>
+
             <ul class="footer_list">
                 <li>
                     <h3>Atendimento</h3>
                 </li>
-                <li><a href="contato.html" class="footer-link">Contato</a></li>
+                <li><a href="contato.html" class="footer-link">💬 Contato</a></li>
             </ul>
 
-            <!-- Lista institucional -->
             <ul class="footer_list">
                 <li>
                     <h3>Institucional</h3>
                 </li>
-                <li><a href="#" class="footer-link">Quem Somos</a></li>
+                <li><a href="#" class="footer-link">🏢 Quem Somos</a></li>
             </ul>
 
-            <!-- Seção de inscrição -->
             <div id="footer_inscreva-se">
                 <h3>Inscreva-se</h3>
-                <p>Receba ofertas e novidades!</p>
+                <p>Receba ofertas e novidades! 📩</p>
                 <div id="input_inscreva-se">
                     <input type="email" id="email" placeholder="Seu e-mail">
                     <button class="btn btn-success">
@@ -111,11 +123,11 @@
             </div>
         </div>
 
-        <!-- Rodapé final -->
         <div id="final_rodape">
-            &#169; Vendinha Cabulosa. Todos os direitos reservados.
+            &#169; Lojinha Cabulosa. Todos os direitos reservados. 🛍️
         </div>
     </footer>
+
     <script src="js/scripts.js"></script>
 </body>
 
