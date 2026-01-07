@@ -4,8 +4,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const formsLogin = document.getElementById('formulario-login')
     const formsCadastro = document.getElementById('formulario-cadastro')
+    const formsContato = document.getElementById('formulario-contato')
 
     //listener no submit do cadastro
+
+    if (formsContato) {
+        formsContato.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            if (!formsContato.checkValidity()) {
+                formsContato.classList.add('was-validated');
+                return;
+            }
+
+            formsContato.submit();
+
+        });
+    }
+
 
     if (formsCadastro) {
         formsCadastro.addEventListener('submit', async function (event) {
@@ -301,8 +317,8 @@ async function carregarProdutos() {
 function mostrarProdutos(listaDeProdutos) {
     const grade = document.getElementById('grade-produto');
     if (!grade) return;
-    
-    grade.innerHTML = ''; 
+
+    grade.innerHTML = '';
 
     listaDeProdutos.forEach(produto => {
         // Criamos apenas a coluna. O Bootstrap cuida do resto.
@@ -365,8 +381,8 @@ if (inputBusca) {
 
             if (dados.success) {
                 // ITEM 4 DO PDF: Filtrando os produtos pelo termo digitado
-                const filtrados = dados.products.filter(produto => 
-                    produto.name.toLowerCase().includes(termo) || 
+                const filtrados = dados.products.filter(produto =>
+                    produto.name.toLowerCase().includes(termo) ||
                     produto.description.toLowerCase().includes(termo)
                 );
 
@@ -384,11 +400,11 @@ function renderizarCarrinho() {
     const listaHTML = document.getElementById('lista-carrinho');
     const resumo = document.getElementById('resumo-carrinho');
     const totalGeralHTML = document.getElementById('valor-total-geral');
-    
+
     if (!listaHTML) return;
 
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-    listaHTML.innerHTML = ''; 
+    listaHTML.innerHTML = '';
     let somaTotal = 0;
 
     // Se estiver vazio, avisa o usuário
@@ -505,7 +521,7 @@ function carregarMeusPedidos() {
         return;
     }
 
-    container.innerHTML = ""; 
+    container.innerHTML = "";
 
     pedidos.forEach((pedido) => {
         container.innerHTML += `
